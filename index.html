@@ -5,400 +5,350 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vision Hub | Premium Automotive Sales — Harare, Zimbabwe</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-  :root {
-    --green:        #1B6B3A;
-    --green-dark:   #0F4023;
-    --green-mid:    #22883E;
-    --green-light:  #2EAB52;
-    --green-pale:   rgba(27,107,58,0.15);
-    --black:        #080C09;
-    --black2:       #0E1510;
-    --black3:       #151D16;
-    --black4:       #1C261D;
-    --gray:         #2A3A2C;
-    --gray2:        #3A4E3C;
-    --gray-light:   #7A9E7E;
-    --gray-lighter: #C0CEC2;
-    --white:        #FFFFFF;
-    --white-soft:   #F2F7F3;
-    --gold:         #C8A040;
-  }
+:root {
+  --navy:         #0A0E1A;
+  --navy2:        #0D1220;
+  --navy3:        #111827;
+  --navy4:        #1A2236;
+  --navy5:        #1F2D47;
+  --blue:         #1D4ED8;
+  --blue-light:   #3B82F6;
+  --red:          #DC2626;
+  --red-light:    #EF4444;
+  --silver:       #94A3B8;
+  --silver-light: #CBD5E1;
+  --white:        #FFFFFF;
+  --gold:         #F59E0B;
+  --border:       rgba(255,255,255,0.08);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--navy2)}
+::-webkit-scrollbar-thumb{background:var(--red);border-radius:2px}
 
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+/* PREVIEW BANNER */
+.preview-banner{
+  position:fixed;top:0;left:0;right:0;z-index:9999;
+  background:var(--red);padding:0 5%;height:34px;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+}
+.pb-left{display:flex;align-items:center;gap:10px}
+.pb-dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:pdot 1.6s ease-in-out infinite}
+@keyframes pdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.pb-text{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:#fff}
+.pb-sub{font-size:.62rem;color:rgba(255,255,255,.75);letter-spacing:.05em}
+.pb-tag{font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:3px 10px;border-radius:2px;border:1px solid rgba(255,255,255,.4);color:rgba(255,255,255,.9)}
+@media(max-width:600px){.pb-sub,.pb-tag{display:none}}
 
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: var(--black2); }
-  ::-webkit-scrollbar-thumb { background: var(--green-light); border-radius: 2px; }
+/* NAV */
+nav{
+  position:fixed;top:34px;left:0;right:0;z-index:1000;
+  padding:0 5%;background:rgba(10,14,26,.97);backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  height:68px;transition:height .3s;
+}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.nav-logo-icon{width:40px;height:40px;background:var(--red);border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.nav-logo-icon i{color:#fff;font-size:1rem}
+.nav-logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:.08em;text-transform:uppercase;line-height:1.15;color:var(--white)}
+.nav-logo-text span{display:block;color:var(--silver);font-size:.58rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;font-family:'Inter',sans-serif}
+.nav-links{display:flex;align-items:center;gap:.2rem;list-style:none}
+.nav-links a{color:var(--silver-light);text-decoration:none;font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:2px;transition:all .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,.05)}
+.nav-cta{background:var(--red)!important;color:#fff!important;padding:9px 22px!important;border-radius:3px!important;font-weight:700!important}
+.nav-cta:hover{background:#b91c1c!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:calc(34px + 68px);left:0;right:0;background:var(--navy2);border-bottom:2px solid var(--red);padding:1.5rem 5%;z-index:999;flex-direction:column;gap:1rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--silver-light);text-decoration:none;font-size:.9rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.5rem 0;border-bottom:1px solid var(--border);transition:color .3s}
+.mobile-menu a:hover{color:var(--red-light)}
 
-  /* ===== NAV ===== */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    padding: 0 5%;
-    background: rgba(8,12,9,0.96); backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(27,107,58,0.3);
-    display: flex; align-items: center; justify-content: space-between;
-    height: 64px; transition: height 0.3s;
-  }
-  .nav-logo { display: flex; align-items: center; gap: 10px; }
-  .nav-logo img { height: 44px; width: auto; object-fit: contain; }
-  .nav-logo-text { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.06em; line-height: 1.2; color: var(--white); }
-  .nav-logo-text span { display: block; color: var(--green-light); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; }
-  .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
-  .nav-links a { color: var(--gray-lighter); text-decoration: none; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; position: relative; transition: color 0.3s; white-space: nowrap; }
-  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--green-light); transition: width 0.3s; }
-  .nav-links a:hover { color: var(--white); }
-  .nav-links a:hover::after { width: 100%; }
-  .nav-cta { background: var(--green) !important; color: #fff !important; padding: 8px 20px !important; border-radius: 3px !important; font-weight: 700 !important; transition: background 0.3s !important; }
-  .nav-cta:hover { background: var(--green-dark) !important; }
-  .nav-cta::after { display: none !important; }
+/* BUTTONS */
+.btn-primary{display:inline-flex;align-items:center;gap:9px;background:var(--red);color:#fff;padding:13px 28px;text-decoration:none;font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;border-radius:3px;transition:all .3s;border:2px solid var(--red);font-family:'Inter',sans-serif;cursor:pointer}
+.btn-primary:hover{background:#b91c1c;border-color:#b91c1c;box-shadow:0 6px 24px rgba(220,38,38,.3)}
+.btn-secondary{display:inline-flex;align-items:center;gap:9px;background:transparent;color:var(--white);padding:13px 28px;text-decoration:none;font-weight:600;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;border-radius:3px;border:2px solid rgba(255,255,255,.25);transition:all .3s}
+.btn-secondary:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.04)}
+.btn-whatsapp{display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#fff;padding:13px 28px;text-decoration:none;font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;transition:all .3s;border:2px solid #25D366;font-family:'Inter',sans-serif;cursor:pointer}
+.btn-whatsapp:hover{background:#1da851;border-color:#1da851}
 
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-  .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all 0.3s; }
-  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .hamburger.open span:nth-child(2) { opacity: 0; }
-  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+/* HERO */
+.hero{
+  min-height:100vh;position:relative;display:flex;align-items:center;
+  overflow:hidden;padding-top:calc(34px + 68px);padding-bottom:80px;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    linear-gradient(105deg, rgba(10,14,26,.98) 0%, rgba(10,14,26,.78) 52%, rgba(10,14,26,.45) 100%),
+    url('ford.jpg') center right / cover no-repeat;
+}
+.hero-bg::after{content:'';position:absolute;bottom:0;left:0;right:0;height:200px;background:linear-gradient(to top,var(--navy),transparent);z-index:1}
+.hero-bg::before{content:'';position:absolute;left:0;top:0;bottom:0;width:45%;background:linear-gradient(to right,var(--navy) 0%,transparent 100%);z-index:1}
+.hero-grid{position:absolute;inset:0;z-index:2;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:60px 60px}
+.hero-content{position:relative;z-index:3;padding:0 5%;max-width:660px;width:100%;margin-top:50px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(220,38,38,.15);border:1px solid rgba(220,38,38,.4);color:#fca5a5;font-size:.68rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;padding:6px 14px;border-radius:2px;margin-bottom:1.5rem;width:fit-content;animation:fadeInUp .6s ease both}
+.hero-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(3.2rem,6.5vw,6rem);font-weight:800;line-height:.96;letter-spacing:.01em;margin-bottom:1.2rem;text-transform:uppercase;animation:fadeInUp .6s ease .1s both}
+.hero-title em{font-style:normal;color:var(--red-light)}
+.hero-title .outline{-webkit-text-stroke:2px rgba(255,255,255,.35);color:transparent}
+.hero-sub{font-size:.95rem;color:var(--silver-light);font-weight:400;line-height:1.75;max-width:470px;margin-bottom:2rem;animation:fadeInUp .6s ease .2s both}
+.hero-buttons{display:flex;flex-wrap:wrap;gap:.85rem;margin-bottom:2.5rem;animation:fadeInUp .6s ease .3s both}
+.hero-stats{display:flex;flex-wrap:wrap;animation:fadeInUp .6s ease .4s both;border:1px solid var(--border);border-radius:4px;overflow:hidden;width:fit-content}
+.stat{padding:16px 28px;background:rgba(255,255,255,.03);border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat h3{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;color:var(--white);line-height:1}
+.stat p{font-size:.65rem;color:var(--silver);letter-spacing:.14em;text-transform:uppercase;margin-top:3px;font-weight:500}
 
-  .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--black2); border-bottom: 2px solid var(--green); padding: 1.5rem 5%; z-index: 999; flex-direction: column; gap: 1rem; }
-  .mobile-menu.open { display: flex; }
-  .mobile-menu a { color: var(--gray-lighter); text-decoration: none; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 0; border-bottom: 1px solid var(--gray); transition: color 0.3s; }
-  .mobile-menu a:hover { color: var(--green-light); }
+/* TICKER */
+.ticker{background:var(--red);padding:10px 0;overflow:hidden;white-space:nowrap;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1)}
+.ticker-inner{display:inline-flex;animation:ticker 32s linear infinite}
+.ticker-inner span{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;padding:0 2.5rem;color:rgba(255,255,255,.9)}
+.ticker-inner span i{margin-right:.5rem;color:rgba(255,255,255,.55)}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-  /* ===== BUTTONS ===== */
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 9px;
-    background: var(--green); color: #FFFFFF;
-    padding: 13px 28px; text-decoration: none; font-weight: 700; font-size: 0.85rem;
-    letter-spacing: 0.1em; text-transform: uppercase; border-radius: 3px;
-    transition: all 0.3s; border: 2px solid var(--green);
-    font-family: 'DM Sans', sans-serif; cursor: pointer;
-  }
-  .btn-primary i { color: #FFFFFF !important; }
-  .btn-primary:hover { background: var(--green-dark); border-color: var(--green-dark); color: #FFFFFF; box-shadow: 0 6px 24px rgba(27,107,58,0.35); }
+/* SECTIONS */
+section{padding:96px 5%}
+.section-eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--red-light);font-size:.68rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;margin-bottom:.6rem}
+.section-eyebrow::before{content:'';display:block;width:24px;height:2px;background:var(--red)}
+.section-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:800;line-height:1;letter-spacing:.02em;text-transform:uppercase;margin-bottom:.8rem}
+.section-title em{font-style:normal;color:var(--red-light)}
 
-  .btn-secondary {
-    display: inline-flex; align-items: center; gap: 9px;
-    background: transparent; color: var(--white);
-    padding: 13px 28px; text-decoration: none; font-weight: 600; font-size: 0.85rem;
-    letter-spacing: 0.1em; text-transform: uppercase; border-radius: 3px;
-    border: 2px solid rgba(255,255,255,0.22); transition: all 0.3s;
-  }
-  .btn-secondary:hover { border-color: rgba(255,255,255,0.6); }
+/* ABOUT */
+.about{background:var(--navy2);position:relative;overflow:hidden}
+.about::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(29,78,216,.05) 0%,transparent 70%);pointer-events:none}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.about-img-wrap{position:relative;line-height:0}
+.about-img-wrap img{width:100%;height:auto;display:block;border-radius:4px;filter:brightness(.9)}
+.about-img-wrap::after{content:'';position:absolute;inset:0;border-radius:4px;background:linear-gradient(to top,rgba(10,14,26,.65) 0%,transparent 60%);pointer-events:none}
+.corner-tl,.corner-tr,.corner-bl,.corner-br{position:absolute;width:32px;height:32px;z-index:3;pointer-events:none}
+.corner-tl{top:12px;left:12px;border-top:2px solid rgba(220,38,38,.55);border-left:2px solid rgba(220,38,38,.55)}
+.corner-tr{top:12px;right:12px;border-top:2px solid rgba(220,38,38,.55);border-right:2px solid rgba(220,38,38,.55)}
+.corner-bl{bottom:12px;left:12px;border-bottom:2px solid rgba(220,38,38,.55);border-left:2px solid rgba(220,38,38,.55)}
+.corner-br{bottom:12px;right:12px;border-bottom:2px solid rgba(220,38,38,.55);border-right:2px solid rgba(220,38,38,.55)}
+.about-tag{position:absolute;bottom:20px;left:20px;background:var(--red);color:#fff;padding:9px 16px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;border-radius:2px;z-index:4}
+.about-text p{color:var(--silver-light);font-size:.92rem;line-height:1.8;margin-bottom:1.3rem}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.8rem}
+.about-feature{display:flex;align-items:flex-start;gap:10px;padding:13px 14px;background:var(--navy3);border-radius:3px;border:1px solid var(--border);border-left:3px solid var(--red)}
+.about-feature i{color:var(--red-light);font-size:.95rem;margin-top:1px;flex-shrink:0}
+.about-feature span{font-size:.8rem;font-weight:600;color:var(--silver-light);letter-spacing:.03em}
 
-  .btn-whatsapp {
-    display: inline-flex; align-items: center; gap: 9px;
-    background: #25D366; color: #fff;
-    padding: 13px 28px; text-decoration: none; font-weight: 700; font-size: 0.85rem;
-    letter-spacing: 0.08em; text-transform: uppercase; border-radius: 3px;
-    transition: all 0.3s; border: 2px solid #25D366; font-family: 'DM Sans', sans-serif; cursor: pointer;
-  }
-  .btn-whatsapp:hover { background: #1da851; border-color: #1da851; }
+/* VEHICLES */
+.vehicles{background:var(--navy)}
+.vehicles-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1.2rem}
+.vehicles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.car-card{background:var(--navy3);border-radius:4px;overflow:hidden;border:1px solid var(--border);transition:transform .35s,border-color .35s,box-shadow .35s}
+.car-card:hover{transform:translateY(-5px);border-color:rgba(220,38,38,.45);box-shadow:0 16px 44px rgba(0,0,0,.45)}
+.car-img{position:relative;overflow:hidden;background:var(--navy4)}
+.car-img img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .5s;filter:brightness(.9)}
+.car-card:hover .car-img img{transform:scale(1.04);filter:brightness(1)}
+.car-img::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(to top,var(--navy3),transparent);pointer-events:none;z-index:2}
+.car-badge{position:absolute;top:12px;left:12px;font-size:.58rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:5px 12px;border-radius:2px;z-index:3}
+.car-badge.new{background:var(--blue);color:#fff}
+.car-badge.imported{background:var(--navy5);color:var(--silver-light);border:1px solid var(--border)}
+.car-badge.featured{background:var(--gold);color:var(--navy)}
+.car-price-tag{position:absolute;top:12px;right:12px;background:var(--red);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;padding:5px 12px;border-radius:2px;z-index:3;letter-spacing:.04em}
+.car-info{padding:1.4rem 1.5rem 1.6rem}
+.car-info h3{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.25rem;color:var(--white)}
+.car-year{font-size:.7rem;color:var(--red-light);font-weight:600;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.9rem}
+.car-specs{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:1.2rem}
+.spec-item{display:flex;align-items:center;gap:6px;font-size:.76rem;color:var(--silver-light)}
+.spec-item i{color:var(--blue-light);font-size:.68rem;width:13px}
+.car-footer{display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid var(--border);gap:.8rem;flex-wrap:wrap}
+.car-price{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:800;color:var(--white);letter-spacing:.02em}
+.car-price span{font-size:.72rem;color:var(--silver);font-family:'Inter',sans-serif;font-weight:400}
+.btn-enquire{display:inline-flex;align-items:center;gap:7px;background:var(--red);color:#fff;padding:9px 16px;border-radius:3px;font-size:.73rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:none;transition:all .3s;font-family:'Inter',sans-serif;cursor:pointer}
+.btn-enquire:hover{background:#b91c1c}
 
-  /* ===== HERO ===== */
-  .hero {
-    height: 100vh; min-height: 560px;
-    position: relative; display: flex; align-items: center; overflow: hidden;
-    padding-top: 64px;
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background:
-      linear-gradient(135deg, rgba(8,12,9,0.97) 0%, rgba(27,107,58,0.13) 50%, rgba(8,12,9,0.95) 100%),
-      url('ford.jpg') center/cover no-repeat;
-  }
-  .hero-bg::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, var(--black) 30%, transparent 75%); }
-  .hero-bg::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 140px; background: linear-gradient(to top, var(--black), transparent); }
-  .hero-grid {
-    position: absolute; inset: 0;
-    background-image: linear-gradient(rgba(27,107,58,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(27,107,58,0.05) 1px, transparent 1px);
-    background-size: 55px 55px; z-index: 1;
-  }
-  .hero-content { position: relative; z-index: 2; padding: 0 5%; max-width: 700px; width: 100%; }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(27,107,58,0.18); border: 1px solid rgba(46,171,82,0.4);
-    color: var(--green-light); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
-    padding: 7px 14px; border-radius: 3px; margin-bottom: 1.1rem; width: fit-content;
-    animation: fadeInUp 0.7s ease both;
-  }
-  .hero-title {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: clamp(2.4rem, 5vw, 4.5rem); font-weight: 700;
-    line-height: 1.02; letter-spacing: 0.03em; margin-bottom: 1rem;
-    animation: fadeInUp 0.7s ease 0.1s both;
-  }
-  .hero-title em { font-style: normal; color: var(--green-light); }
-  .hero-title .outline { -webkit-text-stroke: 2px rgba(255,255,255,0.55); color: transparent; }
-  .hero-sub { font-size: clamp(0.86rem, 1.4vw, 0.98rem); color: var(--gray-lighter); font-weight: 400; line-height: 1.75; max-width: 490px; margin-bottom: 1.6rem; animation: fadeInUp 0.7s ease 0.2s both; }
-  .hero-buttons { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-bottom: 2rem; animation: fadeInUp 0.7s ease 0.3s both; }
-  .hero-stats { display: flex; gap: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); animation: fadeInUp 0.7s ease 0.4s both; flex-wrap: wrap; }
-  .stat h3 { font-family: 'Rajdhani', sans-serif; font-size: 2rem; font-weight: 700; color: var(--green-light); line-height: 1; }
-  .stat p { font-size: 0.72rem; color: var(--gray-light); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 3px; }
-  @media (max-width: 768px) { .hero-stats { display: none !important; } }
-  @media (max-height: 680px) { .hero-stats { display: none; } }
+/* SERVICES */
+.services{background:var(--navy2)}
+.services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1.2rem}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:4px;overflow:hidden}
+.service-card{background:var(--navy2);padding:2.4rem 2rem;position:relative;overflow:hidden;transition:all .3s ease}
+.service-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:3px;background:var(--red);transition:width .4s ease}
+.service-card:hover::after{width:100%}
+.service-card:hover{background:var(--navy3)}
+.service-number{font-family:'Barlow Condensed',sans-serif;font-size:4rem;color:rgba(255,255,255,.04);line-height:1;position:absolute;top:1rem;right:1.5rem;font-weight:800}
+.service-icon{width:50px;height:50px;background:rgba(220,38,38,.1);border-radius:3px;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;border:1px solid rgba(220,38,38,.2);transition:all .3s}
+.service-icon i{font-size:1.2rem;color:var(--red-light);transition:transform .3s}
+.service-card:hover .service-icon{background:var(--red);border-color:var(--red)}
+.service-card:hover .service-icon i{color:#fff;transform:scale(1.1)}
+.service-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:800;letter-spacing:.06em;margin-bottom:.7rem;text-transform:uppercase;color:var(--white)}
+.service-card p{color:var(--silver);font-size:.86rem;line-height:1.7}
+.service-card ul{list-style:none;margin-top:.9rem;display:flex;flex-direction:column;gap:6px}
+.service-card ul li{color:var(--silver-light);font-size:.78rem;display:flex;align-items:center;gap:8px}
+.service-card ul li::before{content:'';width:4px;height:4px;background:var(--red-light);border-radius:50%;flex-shrink:0}
+.service-featured{background:var(--navy3);border:1px solid rgba(220,38,38,.12)}
 
-  /* ===== TICKER ===== */
-  .ticker { background: var(--green-dark); border-top: 1px solid rgba(27,107,58,0.5); padding: 12px 0; overflow: hidden; white-space: nowrap; }
-  .ticker-inner { display: inline-flex; animation: ticker 30s linear infinite; }
-  .ticker-inner span { font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 0 2.5rem; color: rgba(255,255,255,0.88); }
-  .ticker-inner span i { margin-right: 0.5rem; color: rgba(255,255,255,0.5); }
-  @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+/* SOURCING */
+.sourcing{background:linear-gradient(135deg,#0f1724 0%,#1a2236 50%,#0a0e1a 100%);padding:80px 5%;position:relative;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.sourcing::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:50px 50px}
+.sourcing::after{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(220,38,38,.07) 0%,transparent 70%);pointer-events:none}
+.sourcing-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1}
+.sourcing h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,4.5vw,3.4rem);font-weight:800;line-height:.96;margin-bottom:1rem;color:var(--white);text-transform:uppercase}
+.sourcing h2 em{font-style:normal;color:var(--red-light)}
+.sourcing-text p{color:var(--silver-light);font-size:.92rem;line-height:1.8;margin-bottom:1.8rem}
+.sourcing-points{display:flex;flex-direction:column;gap:.85rem}
+.sourcing-point{display:flex;align-items:center;gap:12px;color:var(--silver-light);font-size:.86rem;font-weight:500}
+.sourcing-point i{color:var(--red-light);font-size:.85rem}
+.sourcing-form{background:var(--navy3);border:1px solid var(--border);border-radius:4px;padding:2.5rem}
+.sourcing-form h3{font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1.5rem;padding-bottom:.8rem;border-bottom:2px solid var(--red);color:var(--white)}
+.sform-group{margin-bottom:1rem}
+.sform-group label{display:block;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--silver);margin-bottom:6px}
+.sform-group input,.sform-group select,.sform-group textarea{width:100%;background:var(--navy4);border:1px solid var(--border);border-radius:3px;padding:10px 14px;color:var(--white);font-family:'Inter',sans-serif;font-size:.86rem;transition:border-color .3s;outline:none;-webkit-appearance:none}
+.sform-group input::placeholder,.sform-group textarea::placeholder{color:rgba(255,255,255,.2)}
+.sform-group input:focus,.sform-group select:focus,.sform-group textarea:focus{border-color:rgba(220,38,38,.45)}
+.sform-group select option{background:var(--navy3);color:var(--white)}
+.sform-group textarea{resize:vertical;min-height:80px}
+.sform-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.sform-buttons{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:.5rem}
+.btn-red-solid{display:inline-flex;align-items:center;gap:9px;background:var(--red);color:#fff;padding:12px 22px;font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;border:2px solid var(--red);transition:all .3s;font-family:'Inter',sans-serif;cursor:pointer;flex:1;justify-content:center}
+.btn-red-solid:hover{background:#b91c1c;border-color:#b91c1c}
+.btn-wa{display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#fff;padding:12px 22px;font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;border:2px solid #25D366;transition:all .3s;font-family:'Inter',sans-serif;cursor:pointer;flex:1;justify-content:center}
+.btn-wa:hover{background:#1da851;border-color:#1da851}
 
-  /* ===== SECTION BASE ===== */
-  section { padding: 90px 5%; }
-  .section-label { display: inline-flex; align-items: center; gap: 10px; color: var(--green-light); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 0.8rem; }
-  .section-label::before { content: ''; display: block; width: 28px; height: 2px; background: var(--green); }
-  .section-title { font-family: 'Rajdhani', sans-serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; line-height: 1.05; letter-spacing: 0.03em; margin-bottom: 0.8rem; }
-  .section-title em { font-style: normal; color: var(--green-light); }
+/* PROCESS */
+.process{background:var(--navy)}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:3.5rem;background:var(--border);border-radius:4px;overflow:hidden}
+.process-step{background:var(--navy3);padding:2.2rem 1.8rem;position:relative;transition:background .3s}
+.process-step:hover{background:var(--navy4)}
+.process-step::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:transparent;transition:background .3s}
+.process-step:hover::before{background:var(--red)}
+.step-num{font-family:'Barlow Condensed',sans-serif;font-size:4.5rem;font-weight:800;color:rgba(255,255,255,.04);line-height:1;margin-bottom:.8rem}
+.step-icon{width:46px;height:46px;background:var(--red);border-radius:2px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.step-icon i{color:#fff;font-size:1rem}
+.process-step h3{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.7rem;color:var(--white)}
+.process-step p{font-size:.83rem;color:var(--silver);line-height:1.7}
 
-  /* ===== ABOUT ===== */
-  .about { background: var(--black2); position: relative; overflow: hidden; }
-  .about::before { content: ''; position: absolute; top: -80px; right: -80px; width: 450px; height: 450px; border-radius: 50%; background: radial-gradient(circle, rgba(27,107,58,0.07) 0%, transparent 70%); pointer-events: none; }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+/* WHY */
+.why{background:var(--navy2);position:relative;overflow:hidden}
+.why-inner{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.why-image{position:relative;line-height:0;order:2}
+.why-image img{width:100%;height:auto;display:block;border-radius:4px;filter:brightness(.85)}
+.why-image::before{content:'';position:absolute;inset:0;background:linear-gradient(45deg,rgba(10,14,26,.5) 0%,transparent 60%);z-index:1;pointer-events:none;border-radius:4px}
+.why-points{display:flex;flex-direction:column;gap:1.1rem;margin-top:2rem}
+.why-point{display:flex;gap:1.1rem;align-items:flex-start;padding:1.2rem;background:var(--navy3);border-radius:3px;border:1px solid var(--border);transition:border-color .3s,transform .3s}
+.why-point:hover{border-color:rgba(220,38,38,.3);transform:translateX(4px)}
+.why-point-icon{width:42px;height:42px;background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.2);border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.why-point-icon i{color:var(--red-light);font-size:.95rem}
+.why-point-text h4{font-weight:700;font-size:.92rem;margin-bottom:3px;color:var(--white)}
+.why-point-text p{font-size:.81rem;color:var(--silver);line-height:1.65}
 
-  .about-img-wrap { position: relative; border-radius: 6px; overflow: visible; box-shadow: 0 20px 60px rgba(0,0,0,0.5); line-height: 0; }
-  .about-img-wrap img { width: 100%; height: auto; display: block; border-radius: 6px; filter: grayscale(15%); transition: filter 0.5s; }
-  .about-img-wrap:hover img { filter: grayscale(0%); }
-  .about-img-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,12,9,0.9) 0%, rgba(15,64,35,0.2) 38%, transparent 65%), linear-gradient(135deg, rgba(27,107,58,0.12) 0%, transparent 55%); pointer-events: none; border-radius: 6px; }
-  .about-img-wrap::before { content: ''; position: absolute; top: 14px; left: 14px; width: 36px; height: 36px; border-top: 3px solid var(--green-light); border-left: 3px solid var(--green-light); border-radius: 2px 0 0 0; z-index: 3; pointer-events: none; }
-  .corner-tr, .corner-bl, .corner-br { position: absolute; width: 36px; height: 36px; z-index: 3; pointer-events: none; }
-  .corner-tr { top: 14px; right: 14px; border-top: 3px solid var(--green-light); border-right: 3px solid var(--green-light); border-radius: 0 2px 0 0; }
-  .corner-bl { bottom: 14px; left: 14px; border-bottom: 3px solid var(--green-light); border-left: 3px solid var(--green-light); border-radius: 0 0 0 2px; }
-  .corner-br { bottom: 14px; right: 14px; border-bottom: 3px solid var(--green-light); border-right: 3px solid var(--green-light); border-radius: 0 0 2px 0; }
-  .about-accent { position: absolute; bottom: -18px; right: -18px; width: 110px; height: 110px; border: 2px solid rgba(27,107,58,0.35); border-radius: 4px; z-index: -1; }
-  .about-tag { position: absolute; top: 22px; left: -14px; background: var(--green); color: var(--white); padding: 10px 18px; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; z-index: 4; }
+/* CONTACT */
+.contact{background:var(--navy)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:70px;margin-top:3.5rem}
+.contact-info h3{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;letter-spacing:.04em;margin-bottom:.8rem;text-transform:uppercase;color:var(--white)}
+.contact-info>p{color:var(--silver-light);font-size:.9rem;line-height:1.8;margin-bottom:2rem}
+.contact-item{display:flex;align-items:center;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border)}
+.contact-item-icon{width:42px;height:42px;background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.2);border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-item-icon i{color:var(--red-light);font-size:.9rem}
+.contact-item-text span{display:block;font-size:.65rem;color:var(--silver);letter-spacing:.14em;text-transform:uppercase;margin-bottom:2px}
+.contact-item-text a,.contact-item-text p{color:var(--white);text-decoration:none;font-weight:600;font-size:.9rem;transition:color .3s;margin:0}
+.contact-item-text a:hover{color:var(--red-light)}
+.contact-form{background:var(--navy3);border-radius:4px;padding:2.2rem;border:1px solid var(--border)}
+.form-title{font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.8rem;padding-bottom:.8rem;border-bottom:2px solid var(--red);color:var(--white)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{margin-bottom:1rem}
+.form-group label{display:block;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--silver);margin-bottom:6px}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:var(--navy4);border:1px solid var(--border);border-radius:3px;padding:11px 14px;color:var(--white);font-family:'Inter',sans-serif;font-size:.86rem;transition:border-color .3s;outline:none;-webkit-appearance:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(220,38,38,.45)}
+.form-group select option{background:var(--navy3);color:var(--white)}
+.form-group textarea{resize:vertical;min-height:110px}
+.contact-buttons{display:flex;gap:.8rem;flex-wrap:wrap}
+.contact-buttons .btn-primary,.contact-buttons .btn-whatsapp{flex:1;justify-content:center}
 
-  .about-text p { color: var(--gray-lighter); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.4rem; }
-  .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 1.8rem; }
-  .about-feature { display: flex; align-items: flex-start; gap: 10px; padding: 14px; background: var(--black3); border-radius: 4px; border-left: 3px solid var(--green); }
-  .about-feature i { color: var(--green-light); font-size: 1rem; margin-top: 1px; flex-shrink: 0; }
-  .about-feature span { font-size: 0.82rem; font-weight: 600; color: var(--gray-lighter); letter-spacing: 0.04em; }
+/* FOOTER */
+footer{background:var(--navy2);border-top:1px solid var(--border)}
+.footer-main{padding:70px 5% 44px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px}
+.footer-brand-logo{display:flex;align-items:center;gap:12px;margin-bottom:1.2rem}
+.footer-brand-logo .logo-icon{width:44px;height:44px;background:var(--red);border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.footer-brand-logo .logo-icon i{color:#fff;font-size:1.1rem}
+.footer-brand-logo .logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase}
+.footer-brand-logo .logo-text span{display:block;color:var(--silver);font-size:.58rem;letter-spacing:.2em;font-family:'Inter',sans-serif;font-weight:500}
+.footer-brand p{font-size:.83rem;color:var(--silver);line-height:1.8;margin-bottom:1.4rem}
+.footer-socials{display:flex;gap:9px}
+.footer-socials a{width:34px;height:34px;background:var(--navy3);border:1px solid var(--border);border-radius:3px;display:flex;align-items:center;justify-content:center;color:var(--silver);text-decoration:none;font-size:.82rem;transition:all .3s}
+.footer-socials a:hover{background:var(--red);border-color:var(--red);color:#fff;transform:translateY(-2px)}
+.footer-col h4{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;color:var(--white);margin-bottom:1.2rem;padding-bottom:.6rem;border-bottom:2px solid var(--red);display:inline-block}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-col ul li a{color:var(--silver);text-decoration:none;font-size:.83rem;transition:color .3s;display:flex;align-items:center;gap:7px}
+.footer-col ul li a i{font-size:.55rem;color:var(--red-light)}
+.footer-col ul li a:hover{color:var(--white)}
+.footer-bottom{padding:1.3rem 5%;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem}
+.footer-bottom p{font-size:.76rem;color:var(--silver)}
+.footer-bottom span{color:var(--red-light)}
+.footer-made{font-size:.74rem;color:var(--silver)}
+.footer-made a{color:var(--red-light);text-decoration:none;font-weight:700}
 
-  /* ===== VEHICLE LISTINGS ===== */
-  .vehicles { background: var(--black); }
-  .vehicles-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1.2rem; }
-  .vehicles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+/* ANIMATIONS */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
 
-  .car-card {
-    background: var(--black2); border-radius: 6px; overflow: hidden;
-    border: 1px solid var(--gray);
-    transition: transform 0.35s, border-color 0.35s, box-shadow 0.35s;
-  }
-  .car-card:hover { transform: translateY(-6px); border-color: var(--green); box-shadow: 0 16px 44px rgba(27,107,58,0.2); }
-
-  .car-img { position: relative; overflow: hidden; background: var(--black3); }
-  .car-img img { width: 100%; height: auto; display: block; transition: filter 0.4s; filter: grayscale(10%); }
-  .car-card:hover .car-img img { filter: grayscale(0%); }
-  .car-img::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 50px; background: linear-gradient(to top, var(--black2), transparent); }
-
-  .car-badge { position: absolute; top: 12px; left: 12px; background: var(--green); color: #fff; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; padding: 5px 12px; border-radius: 2px; z-index: 2; }
-  .car-badge.new { background: var(--green); }
-  .car-badge.imported { background: var(--green-dark); }
-  .car-badge.featured { background: var(--gold); color: var(--black); }
-
-  .car-price-tag { position: absolute; top: 12px; right: 12px; background: rgba(8,12,9,0.88); border: 1px solid rgba(46,171,82,0.4); color: var(--green-light); font-family: 'Rajdhani', sans-serif; font-size: 1rem; font-weight: 700; padding: 5px 12px; border-radius: 3px; z-index: 2; }
-
-  .car-info { padding: 1.4rem 1.5rem 1.6rem; }
-  .car-info h3 { font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.3rem; color: var(--white); }
-  .car-year { font-size: 0.75rem; color: var(--green-light); font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.9rem; }
-
-  .car-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 1.2rem; }
-  .spec-item { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--gray-lighter); }
-  .spec-item i { color: var(--green-light); font-size: 0.7rem; width: 14px; }
-
-  .car-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; border-top: 1px solid var(--gray); gap: 0.8rem; flex-wrap: wrap; }
-  .car-price { font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--white); }
-  .car-price span { font-size: 0.75rem; color: var(--gray-light); font-family: 'DM Sans', sans-serif; font-weight: 400; }
-
-  .btn-enquire {
-    display: inline-flex; align-items: center; gap: 7px;
-    background: var(--green); color: #fff;
-    padding: 9px 18px; border-radius: 3px;
-    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-    text-decoration: none; border: 2px solid var(--green);
-    transition: all 0.3s; font-family: 'DM Sans', sans-serif;
-  }
-  .btn-enquire:hover { background: var(--green-dark); border-color: var(--green-dark); }
-
-  /* ===== SERVICES ===== */
-  .services { background: var(--black2); }
-  .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1.2rem; }
-  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--gray); border-radius: 4px; overflow: hidden; }
-  .service-card { background: var(--black2); padding: 2.5rem 2rem; position: relative; overflow: hidden; transition: all 0.35s ease; }
-  .service-card::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px; background: var(--green-light); transition: width 0.4s ease; }
-  .service-card:hover::before { width: 100%; }
-  .service-card:hover { background: var(--black3); transform: translateY(-3px); }
-  .service-number { font-family: 'Rajdhani', sans-serif; font-size: 3.5rem; color: rgba(27,107,58,0.08); line-height: 1; position: absolute; top: 1rem; right: 1.5rem; transition: color 0.4s; }
-  .service-card:hover .service-number { color: rgba(27,107,58,0.18); }
-  .service-icon { width: 52px; height: 52px; background: rgba(27,107,58,0.12); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.3rem; border: 1px solid rgba(27,107,58,0.25); transition: all 0.35s; }
-  .service-icon i { font-size: 1.3rem; color: var(--green-light); transition: transform 0.3s; }
-  .service-card:hover .service-icon { background: var(--green); border-color: var(--green); }
-  .service-card:hover .service-icon i { color: var(--white); transform: scale(1.1); }
-  .service-card h3 { font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.8rem; text-transform: uppercase; color: var(--white); }
-  .service-card p { color: var(--gray-light); font-size: 0.88rem; line-height: 1.7; }
-  .service-card ul { list-style: none; margin-top: 1rem; display: flex; flex-direction: column; gap: 6px; }
-  .service-card ul li { color: var(--gray-lighter); font-size: 0.8rem; display: flex; align-items: center; gap: 8px; }
-  .service-card ul li::before { content: ''; width: 4px; height: 4px; background: var(--green-light); border-radius: 50%; flex-shrink: 0; }
-  .service-featured { background: var(--black3); border: 1px solid rgba(27,107,58,0.25); }
-
-  /* ===== SOURCING / CTA STRIP ===== */
-  .sourcing {
-    background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 55%, var(--green-mid) 100%);
-    padding: 80px 5%; position: relative; overflow: hidden;
-  }
-  .sourcing::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 45px 45px; }
-  .sourcing-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
-  .sourcing h2 { font-family: 'Rajdhani', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.05; margin-bottom: 1rem; color: var(--white); }
-  .sourcing h2 em { font-style: normal; color: rgba(255,255,255,0.7); -webkit-text-stroke: 1px rgba(255,255,255,0.8); }
-  .sourcing p { color: rgba(255,255,255,0.82); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.8rem; }
-  .sourcing-points { display: flex; flex-direction: column; gap: 0.9rem; }
-  .sourcing-point { display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.9); font-size: 0.88rem; font-weight: 500; }
-  .sourcing-point i { color: rgba(255,255,255,0.7); font-size: 0.85rem; }
-  .sourcing-form { background: rgba(8,12,9,0.5); border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; padding: 2.5rem; backdrop-filter: blur(10px); }
-  .sourcing-form h3 { font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.5rem; padding-bottom: 0.8rem; border-bottom: 2px solid rgba(255,255,255,0.2); color: var(--white); }
-  .sform-group { margin-bottom: 1rem; }
-  .sform-group label { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 6px; }
-  .sform-group input, .sform-group select, .sform-group textarea { width: 100%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 3px; padding: 10px 14px; color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 0.88rem; transition: border-color 0.3s; outline: none; -webkit-appearance: none; }
-  .sform-group input::placeholder, .sform-group textarea::placeholder { color: rgba(255,255,255,0.4); }
-  .sform-group input:focus, .sform-group select:focus, .sform-group textarea:focus { border-color: rgba(255,255,255,0.55); }
-  .sform-group select option { background: var(--black3); color: var(--white); }
-  .sform-group textarea { resize: vertical; min-height: 80px; }
-  .sform-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .sform-buttons { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 0.5rem; }
-  .btn-white { display: inline-flex; align-items: center; gap: 9px; background: var(--white); color: var(--green-dark); padding: 12px 22px; text-decoration: none; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 3px; border: 2px solid var(--white); transition: all 0.3s; font-family: 'DM Sans', sans-serif; cursor: pointer; flex: 1; justify-content: center; }
-  .btn-white:hover { background: transparent; color: var(--white); }
-  .btn-wa { display: inline-flex; align-items: center; gap: 9px; background: #25D366; color: #fff; padding: 12px 22px; text-decoration: none; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 3px; border: 2px solid #25D366; transition: all 0.3s; font-family: 'DM Sans', sans-serif; cursor: pointer; flex: 1; justify-content: center; }
-  .btn-wa:hover { background: #1da851; border-color: #1da851; }
-
-  /* ===== PROCESS ===== */
-  .process { background: var(--black); }
-  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 3.5rem; background: var(--gray2); border-radius: 4px; overflow: hidden; }
-  .process-step { background: var(--black2); padding: 2.2rem 1.8rem; position: relative; transition: background 0.3s; }
-  .process-step:hover { background: var(--black3); }
-  .step-num { font-family: 'Rajdhani', sans-serif; font-size: 4rem; font-weight: 700; color: rgba(27,107,58,0.12); line-height: 1; margin-bottom: 0.8rem; }
-  .step-icon { width: 46px; height: 46px; background: var(--green); border-radius: 2px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
-  .step-icon i { color: var(--white); font-size: 1.1rem; }
-  .process-step h3 { font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.7rem; color: var(--white); }
-  .process-step p { font-size: 0.85rem; color: var(--gray-light); line-height: 1.7; }
-
-  /* ===== WHY US ===== */
-  .why { background: var(--black2); position: relative; overflow: hidden; }
-  .why-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
-  .why-image { position: relative; border-radius: 6px; overflow: visible; line-height: 0; order: 2; }
-  .why-image img { width: 100%; height: auto; display: block; border-radius: 6px; filter: grayscale(20%); }
-  .why-image::before { content: ''; position: absolute; inset: 0; background: linear-gradient(45deg, rgba(27,107,58,0.22) 0%, transparent 60%); z-index: 1; pointer-events: none; border-radius: 6px; }
-  .why-points { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 2rem; }
-  .why-point { display: flex; gap: 1.2rem; align-items: flex-start; padding: 1.3rem; background: var(--black3); border-radius: 4px; border: 1px solid var(--gray); transition: border-color 0.3s, transform 0.3s; }
-  .why-point:hover { border-color: rgba(27,107,58,0.45); transform: translateX(5px); }
-  .why-point-icon { width: 44px; height: 44px; background: rgba(27,107,58,0.12); border: 1px solid rgba(27,107,58,0.25); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .why-point-icon i { color: var(--green-light); font-size: 1rem; }
-  .why-point-text h4 { font-weight: 700; font-size: 0.95rem; margin-bottom: 3px; color: var(--white); }
-  .why-point-text p { font-size: 0.83rem; color: var(--gray-light); line-height: 1.65; }
-
-  /* ===== CONTACT ===== */
-  .contact { background: var(--black); }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 70px; margin-top: 3.5rem; }
-  .contact-info h3 { font-family: 'Rajdhani', sans-serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.8rem; text-transform: uppercase; color: var(--white); }
-  .contact-info > p { color: var(--gray-lighter); font-size: 0.92rem; line-height: 1.8; margin-bottom: 2rem; }
-  .contact-item { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--gray); }
-  .contact-item-icon { width: 44px; height: 44px; background: rgba(27,107,58,0.12); border: 1px solid rgba(27,107,58,0.25); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .contact-item-icon i { color: var(--green-light); font-size: 0.95rem; }
-  .contact-item-text span { display: block; font-size: 0.68rem; color: var(--gray-light); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 2px; }
-  .contact-item-text a, .contact-item-text p { color: var(--white); text-decoration: none; font-weight: 600; font-size: 0.92rem; transition: color 0.3s; margin: 0; }
-  .contact-item-text a:hover { color: var(--green-light); }
-  .contact-form { background: var(--black2); border-radius: 4px; padding: 2.2rem; border: 1px solid var(--gray); }
-  .form-title { font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.8rem; padding-bottom: 0.9rem; border-bottom: 2px solid var(--green); color: var(--white); }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
-  .form-group { margin-bottom: 1rem; }
-  .form-group label { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-light); margin-bottom: 6px; }
-  .form-group input, .form-group select, .form-group textarea { width: 100%; background: var(--black3); border: 1px solid var(--gray); border-radius: 3px; padding: 11px 14px; color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 0.88rem; transition: border-color 0.3s; outline: none; -webkit-appearance: none; }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--green-light); }
-  .form-group select option { background: var(--black3); color: var(--white); }
-  .form-group textarea { resize: vertical; min-height: 110px; }
-  .contact-buttons { display: flex; gap: 0.8rem; flex-wrap: wrap; }
-  .contact-buttons .btn-primary, .contact-buttons .btn-whatsapp { flex: 1; justify-content: center; }
-
-  /* ===== FOOTER ===== */
-  footer { background: var(--black2); border-top: 1px solid var(--gray); }
-  .footer-main { padding: 70px 5% 44px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 44px; }
-  .footer-brand img { height: 48px; width: auto; object-fit: contain; margin-bottom: 1.2rem; display: block; }
-  .footer-brand p { font-size: 0.85rem; color: var(--gray-light); line-height: 1.8; margin-bottom: 1.4rem; }
-  .footer-socials { display: flex; gap: 10px; }
-  .footer-socials a { width: 36px; height: 36px; background: var(--black3); border: 1px solid var(--gray); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: var(--gray-light); text-decoration: none; font-size: 0.85rem; transition: all 0.3s; }
-  .footer-socials a:hover { background: var(--green); border-color: var(--green); color: var(--white); transform: translateY(-2px); }
-  .footer-col h4 { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white); margin-bottom: 1.3rem; padding-bottom: 0.7rem; border-bottom: 2px solid var(--green); display: inline-block; }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-  .footer-col ul li a { color: var(--gray-light); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; display: flex; align-items: center; gap: 7px; }
-  .footer-col ul li a i { font-size: 0.58rem; color: var(--green-light); }
-  .footer-col ul li a:hover { color: var(--white); }
-  .footer-bottom { padding: 1.3rem 5%; border-top: 1px solid var(--gray); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem; }
-  .footer-bottom p { font-size: 0.78rem; color: var(--gray-light); }
-  .footer-bottom span { color: var(--green-light); }
-  .footer-made { font-size: 0.76rem; color: var(--gray-light); }
-  .footer-made a { color: var(--green-light); text-decoration: none; font-weight: 700; }
-  .footer-made a:hover { opacity: 0.75; }
-
-  /* ===== ANIMATIONS ===== */
-  @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.65s ease, transform 0.65s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  /* ===== RESPONSIVE ===== */
-  @media (max-width: 1100px) {
-    .vehicles-grid { grid-template-columns: 1fr 1fr; }
-    .services-grid { grid-template-columns: 1fr 1fr; }
-    .footer-main { grid-template-columns: 1fr 1fr; }
-    .sourcing-inner { grid-template-columns: 1fr; gap: 40px; }
-  }
-
-  @media (max-width: 900px) {
-    .about-grid, .why-inner { grid-template-columns: 1fr; gap: 45px; }
-    .why-image { order: -1; }
-    .process-steps { grid-template-columns: 1fr 1fr; }
-    .contact-grid { grid-template-columns: 1fr; gap: 44px; }
-    .about-features { grid-template-columns: 1fr; }
-  }
-
-  @media (max-width: 768px) {
-    nav { padding: 0 4%; }
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
-    section { padding: 65px 4%; }
-    .hero-title { font-size: 2.4rem; }
-    .vehicles-grid, .services-grid { grid-template-columns: 1fr; }
-    .process-steps { grid-template-columns: 1fr; }
-    .form-row, .sform-row { grid-template-columns: 1fr; }
-    .footer-main { grid-template-columns: 1fr; gap: 2rem; padding: 44px 4%; }
-    .footer-bottom { flex-direction: column; text-align: center; }
-    .sourcing { padding: 60px 4%; }
-    .sform-buttons { flex-direction: column; }
-    .btn-white, .btn-wa { width: 100%; }
-  }
-
-  @media (max-width: 480px) {
-    .hero-title { font-size: 2rem; }
-    .hero-buttons { flex-direction: column; }
-    .btn-primary, .btn-secondary, .btn-whatsapp { width: 100%; justify-content: center; }
-    .vehicles-header { flex-direction: column; align-items: flex-start; }
-    .services-header { flex-direction: column; align-items: flex-start; }
-    .contact-buttons { flex-direction: column; }
-  }
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .vehicles-grid{grid-template-columns:1fr 1fr}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .footer-main{grid-template-columns:1fr 1fr}
+  .sourcing-inner{grid-template-columns:1fr;gap:40px}
+}
+@media(max-width:900px){
+  .about-grid,.why-inner{grid-template-columns:1fr;gap:45px}
+  .why-image{order:-1}
+  .process-steps{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr;gap:44px}
+  .about-features{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  nav{padding:0 4%;top:34px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  section{padding:65px 4%}
+  .vehicles-grid,.services-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr}
+  .form-row,.sform-row{grid-template-columns:1fr}
+  .footer-main{grid-template-columns:1fr;gap:2rem;padding:44px 4%}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .sourcing{padding:60px 4%}
+  .sform-buttons{flex-direction:column}
+  .hero-stats{display:none}
+}
+@media(max-width:480px){
+  .hero-title{font-size:2.9rem}
+  .hero-buttons{flex-direction:column}
+  .btn-primary,.btn-secondary,.btn-whatsapp{width:100%;justify-content:center}
+  .vehicles-header,.services-header{flex-direction:column;align-items:flex-start}
+  .contact-buttons{flex-direction:column}
+}
 </style>
 </head>
 <body>
 
-<!-- ===== NAV ===== -->
+<!-- PREVIEW BANNER -->
+<div class="preview-banner">
+  <div class="pb-left">
+    <div class="pb-dot"></div>
+    <div>
+      <div class="pb-text">Website Preview — Vision Hub Automotive</div>
+      <div class="pb-sub">Sample layout · Final version will include your actual logo &amp; photos</div>
+    </div>
+  </div>
+  <div class="pb-tag">Design Preview</div>
+</div>
+
+<!-- NAV -->
 <nav id="navbar">
   <div class="nav-logo">
-    <img src="logos.png" alt="Vision Hub Logo">
-    <div class="nav-logo-text">
-      Vision Hub
-      <span>Automotive Sales — Harare</span>
-    </div>
+    <div class="nav-logo-icon"><i class="fas fa-car"></i></div>
+    <div class="nav-logo-text">Vision Hub<span>Automotive Sales — Harare</span></div>
   </div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
@@ -409,7 +359,6 @@
   </ul>
   <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </nav>
-
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about"    onclick="closeMobile()">About Us</a>
   <a href="#vehicles" onclick="closeMobile()">Our Vehicles</a>
@@ -418,7 +367,7 @@
   <a href="#contact"  onclick="closeMobile()">Enquire Now</a>
 </div>
 
-<!-- ===== HERO ===== -->
+<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
@@ -428,24 +377,25 @@
     <p class="hero-sub">Premium brand-new and imported vehicles — SUVs, 4x4s, double cabs and executive sedans. Duty paid. Clean docs. Ready to drive away today.</p>
     <div class="hero-buttons">
       <a href="#vehicles" class="btn-primary"><i class="fas fa-car"></i> View Available Cars</a>
-      <a href="https://wa.me/263784516291" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+      <a href="#contact" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
       <a href="#sourcing" class="btn-secondary"><i class="fas fa-search"></i> Source A Vehicle</a>
     </div>
     <div class="hero-stats">
       <div class="stat"><h3>2025</h3><p>Model Year Stock</p></div>
-      <div class="stat"><h3>4x4</h3><p>Specialists</p></div>
+      <div class="stat"><h3>4×4</h3><p>Specialists</p></div>
       <div class="stat"><h3>100%</h3><p>Duty Paid</p></div>
+      <div class="stat"><h3>ZW</h3><p>Nationwide</p></div>
     </div>
   </div>
 </section>
 
-<!-- ===== TICKER ===== -->
+<!-- TICKER -->
 <div class="ticker">
   <div class="ticker-inner">
     <span><i class="fas fa-car"></i>Brand New Vehicles</span>
     <span><i class="fas fa-truck-pickup"></i>Double Cab 4x4</span>
     <span><i class="fas fa-car-side"></i>Executive Sedans</span>
-    <span><i class="fas fa-mountain"></i>SUVs & Crossovers</span>
+    <span><i class="fas fa-mountain"></i>SUVs &amp; Crossovers</span>
     <span><i class="fas fa-file-invoice-dollar"></i>Duty Fully Paid</span>
     <span><i class="fas fa-search"></i>Vehicle Sourcing</span>
     <span><i class="fas fa-file-alt"></i>Clean Documentation</span>
@@ -453,7 +403,7 @@
     <span><i class="fas fa-car"></i>Brand New Vehicles</span>
     <span><i class="fas fa-truck-pickup"></i>Double Cab 4x4</span>
     <span><i class="fas fa-car-side"></i>Executive Sedans</span>
-    <span><i class="fas fa-mountain"></i>SUVs & Crossovers</span>
+    <span><i class="fas fa-mountain"></i>SUVs &amp; Crossovers</span>
     <span><i class="fas fa-file-invoice-dollar"></i>Duty Fully Paid</span>
     <span><i class="fas fa-search"></i>Vehicle Sourcing</span>
     <span><i class="fas fa-file-alt"></i>Clean Documentation</span>
@@ -461,21 +411,19 @@
   </div>
 </div>
 
-<!-- ===== ABOUT ===== -->
+<!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-grid">
     <div style="position:relative;" class="reveal">
       <div class="about-img-wrap">
         <img src="mazda.jpg" alt="Vision Hub Premium Vehicles">
-        <div class="about-tag">Est. Harare, ZW</div>
-        <div class="corner-tr"></div>
-        <div class="corner-bl"></div>
-        <div class="corner-br"></div>
+        <div class="about-tag"><i class="fas fa-map-marker-alt" style="margin-right:6px;"></i>Est. Harare, ZW</div>
+        <div class="corner-tl"></div><div class="corner-tr"></div>
+        <div class="corner-bl"></div><div class="corner-br"></div>
       </div>
-      <div class="about-accent"></div>
     </div>
     <div class="about-text reveal">
-      <div class="section-label">About Vision Hub</div>
+      <div class="section-eyebrow">About Vision Hub</div>
       <h2 class="section-title">The Deal You've Been <em>Waiting For.</em></h2>
       <p>Vision Hub is a Harare-based automotive dealership specialising in brand-new and high-quality imported vehicles. We supply SUVs, 4x4 trucks, double cabs, and executive sedans — all duty paid, fully documented, and ready to drive.</p>
       <p>We serve individuals, businesses, farmers, and corporate clients across Zimbabwe with honest, transparent, and professional vehicle sales. Our mission is simple: connect serious buyers with the right vehicle at the right price.</p>
@@ -483,7 +431,7 @@
         <div class="about-feature"><i class="fas fa-shield-alt"></i><span>Fully Duty Paid Imports</span></div>
         <div class="about-feature"><i class="fas fa-file-alt"></i><span>Clean Documentation</span></div>
         <div class="about-feature"><i class="fas fa-handshake"></i><span>Transparent Pricing</span></div>
-        <div class="about-feature"><i class="fas fa-truck-pickup"></i><span>4x4 & SUV Specialists</span></div>
+        <div class="about-feature"><i class="fas fa-truck-pickup"></i><span>4x4 &amp; SUV Specialists</span></div>
         <div class="about-feature"><i class="fas fa-search"></i><span>Vehicle Sourcing Service</span></div>
         <div class="about-feature"><i class="fas fa-user-tie"></i><span>Corporate Fleet Supply</span></div>
       </div>
@@ -491,19 +439,16 @@
   </div>
 </section>
 
-<!-- ===== VEHICLE LISTINGS ===== -->
+<!-- VEHICLES -->
 <section class="vehicles" id="vehicles">
   <div class="vehicles-header reveal">
     <div>
-      <div class="section-label">Available Now</div>
+      <div class="section-eyebrow">Available Now</div>
       <h2 class="section-title">Our Current <em>Vehicles</em></h2>
     </div>
     <a href="#contact" class="btn-primary"><i class="fas fa-phone-alt"></i> Enquire On Any Vehicle</a>
   </div>
-
   <div class="vehicles-grid">
-
-    <!-- Car 1 -->
     <div class="car-card reveal">
       <div class="car-img">
         <div class="car-badge featured">Featured</div>
@@ -512,7 +457,7 @@
       </div>
       <div class="car-info">
         <h3>Toyota Fortuner GD6</h3>
-        <div class="car-year">2025 Model &nbsp;•&nbsp; Brand New</div>
+        <div class="car-year">2025 Model &nbsp;·&nbsp; Brand New</div>
         <div class="car-specs">
           <div class="spec-item"><i class="fas fa-cog"></i> 2.8 GD6 Diesel</div>
           <div class="spec-item"><i class="fas fa-exchange-alt"></i> Automatic</div>
@@ -523,21 +468,19 @@
         </div>
         <div class="car-footer">
           <div class="car-price">$85,000 <span>USD</span></div>
-          <a href="https://wa.me/263784516291?text=Hi%20Vision%20Hub%2C%20I%27m%20interested%20in%20the%202025%20Toyota%20Fortuner%20GD6%20%2485%2C000" target="_blank" class="btn-enquire"><i class="fab fa-whatsapp"></i> Enquire</a>
+          <button class="btn-enquire" onclick="demoClick(this)"><i class="fab fa-whatsapp"></i> Enquire</button>
         </div>
       </div>
     </div>
-
-    <!-- Car 2 -->
     <div class="car-card reveal">
       <div class="car-img">
         <div class="car-badge new">Brand New</div>
         <div class="car-price-tag">$72,000</div>
-        <img src="evoadv.webp" alt="2025 Toyota Hilux Double Cab">
+        <img src="evoadv.webp" alt="2025 Toyota Hilux GD6">
       </div>
       <div class="car-info">
         <h3>Toyota Hilux GD6</h3>
-        <div class="car-year">2025 Model &nbsp;•&nbsp; Brand New</div>
+        <div class="car-year">2025 Model &nbsp;·&nbsp; Brand New</div>
         <div class="car-specs">
           <div class="spec-item"><i class="fas fa-cog"></i> 2.8 GD6 Diesel</div>
           <div class="spec-item"><i class="fas fa-exchange-alt"></i> Automatic</div>
@@ -548,12 +491,10 @@
         </div>
         <div class="car-footer">
           <div class="car-price">$72,000 <span>USD</span></div>
-          <a href="https://wa.me/263784516291?text=Hi%20Vision%20Hub%2C%20I%27m%20interested%20in%20the%202025%20Toyota%20Hilux%20GD6%20%2472%2C000" target="_blank" class="btn-enquire"><i class="fab fa-whatsapp"></i> Enquire</a>
+          <button class="btn-enquire" onclick="demoClick(this)"><i class="fab fa-whatsapp"></i> Enquire</button>
         </div>
       </div>
     </div>
-
-    <!-- Car 3 -->
     <div class="car-card reveal">
       <div class="car-img">
         <div class="car-badge imported">Imported</div>
@@ -562,7 +503,7 @@
       </div>
       <div class="car-info">
         <h3>Isuzu D-Max LS</h3>
-        <div class="car-year">2024 Model &nbsp;•&nbsp; Imported</div>
+        <div class="car-year">2024 Model &nbsp;·&nbsp; Imported</div>
         <div class="car-specs">
           <div class="spec-item"><i class="fas fa-cog"></i> 3.0 Diesel</div>
           <div class="spec-item"><i class="fas fa-exchange-alt"></i> Automatic</div>
@@ -573,12 +514,10 @@
         </div>
         <div class="car-footer">
           <div class="car-price">$58,000 <span>USD</span></div>
-          <a href="https://wa.me/263784516291?text=Hi%20Vision%20Hub%2C%20I%27m%20interested%20in%20the%202024%20Isuzu%20D-Max%20%2458%2C000" target="_blank" class="btn-enquire"><i class="fab fa-whatsapp"></i> Enquire</a>
+          <button class="btn-enquire" onclick="demoClick(this)"><i class="fab fa-whatsapp"></i> Enquire</button>
         </div>
       </div>
     </div>
-
-    <!-- Car 4 -->
     <div class="car-card reveal">
       <div class="car-img">
         <div class="car-badge new">Brand New</div>
@@ -587,7 +526,7 @@
       </div>
       <div class="car-info">
         <h3>Ford Ranger Wildtrak</h3>
-        <div class="car-year">2025 Model &nbsp;•&nbsp; Brand New</div>
+        <div class="car-year">2025 Model &nbsp;·&nbsp; Brand New</div>
         <div class="car-specs">
           <div class="spec-item"><i class="fas fa-cog"></i> 2.0 Bi-Turbo Diesel</div>
           <div class="spec-item"><i class="fas fa-exchange-alt"></i> Automatic</div>
@@ -598,12 +537,10 @@
         </div>
         <div class="car-footer">
           <div class="car-price">$68,000 <span>USD</span></div>
-          <a href="https://wa.me/263784516291?text=Hi%20Vision%20Hub%2C%20I%27m%20interested%20in%20the%202025%20Ford%20Ranger%20Wildtrak%20%2468%2C000" target="_blank" class="btn-enquire"><i class="fab fa-whatsapp"></i> Enquire</a>
+          <button class="btn-enquire" onclick="demoClick(this)"><i class="fab fa-whatsapp"></i> Enquire</button>
         </div>
       </div>
     </div>
-
-    <!-- Car 5 -->
     <div class="car-card reveal">
       <div class="car-img">
         <div class="car-badge imported">Imported</div>
@@ -612,7 +549,7 @@
       </div>
       <div class="car-info">
         <h3>Toyota Corolla Cross</h3>
-        <div class="car-year">2024 Model &nbsp;•&nbsp; Imported</div>
+        <div class="car-year">2024 Model &nbsp;·&nbsp; Imported</div>
         <div class="car-specs">
           <div class="spec-item"><i class="fas fa-cog"></i> 1.8 Petrol Hybrid</div>
           <div class="spec-item"><i class="fas fa-exchange-alt"></i> CVT Automatic</div>
@@ -623,12 +560,10 @@
         </div>
         <div class="car-footer">
           <div class="car-price">$42,000 <span>USD</span></div>
-          <a href="https://wa.me/263784516291?text=Hi%20Vision%20Hub%2C%20I%27m%20interested%20in%20the%202024%20Toyota%20Corolla%20Cross%20%2442%2C000" target="_blank" class="btn-enquire"><i class="fab fa-whatsapp"></i> Enquire</a>
+          <button class="btn-enquire" onclick="demoClick(this)"><i class="fab fa-whatsapp"></i> Enquire</button>
         </div>
       </div>
     </div>
-
-    <!-- Car 6 -->
     <div class="car-card reveal">
       <div class="car-img">
         <div class="car-badge new">Brand New</div>
@@ -637,7 +572,7 @@
       </div>
       <div class="car-info">
         <h3>Toyota Land Cruiser 300</h3>
-        <div class="car-year">2025 Model &nbsp;•&nbsp; Brand New</div>
+        <div class="car-year">2025 Model &nbsp;·&nbsp; Brand New</div>
         <div class="car-specs">
           <div class="spec-item"><i class="fas fa-cog"></i> 3.3 V6 Twin-Turbo</div>
           <div class="spec-item"><i class="fas fa-exchange-alt"></i> 10-Speed Auto</div>
@@ -648,19 +583,18 @@
         </div>
         <div class="car-footer">
           <div class="car-price">$92,000 <span>USD</span></div>
-          <a href="https://wa.me/263784516291?text=Hi%20Vision%20Hub%2C%20I%27m%20interested%20in%20the%202025%20Land%20Cruiser%20300%20%2492%2C000" target="_blank" class="btn-enquire"><i class="fab fa-whatsapp"></i> Enquire</a>
+          <button class="btn-enquire" onclick="demoClick(this)"><i class="fab fa-whatsapp"></i> Enquire</button>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- ===== SERVICES ===== -->
+<!-- SERVICES -->
 <section class="services" id="services">
   <div class="services-header reveal">
     <div>
-      <div class="section-label">What We Offer</div>
+      <div class="section-eyebrow">What We Offer</div>
       <h2 class="section-title">Our <em>Services</em></h2>
     </div>
     <a href="#contact" class="btn-primary"><i class="fas fa-phone-alt"></i> Talk To Us</a>
@@ -711,11 +645,11 @@
   </div>
 </section>
 
-<!-- ===== VEHICLE SOURCING / REQUEST ===== -->
+<!-- SOURCING -->
 <div class="sourcing" id="sourcing">
   <div class="sourcing-inner">
-    <div class="reveal">
-      <div class="section-label" style="color:rgba(255,255,255,0.7);">Can't Find It? We'll Get It.</div>
+    <div class="sourcing-text reveal">
+      <div class="section-eyebrow" style="color:rgba(252,165,165,.8);">Can't Find It? We'll Get It.</div>
       <h2>Vehicle <em>Sourcing</em><br>On Request.</h2>
       <p>Looking for a specific vehicle that's not in our current stock? Vision Hub will source it for you — from Japan, South Africa, Dubai, or wherever it takes. Tell us what you want and we'll find it.</p>
       <div class="sourcing-points">
@@ -737,27 +671,24 @@
         <label>Your Budget (USD)</label>
         <select>
           <option value="">Select budget range...</option>
-          <option>Under $20,000</option>
-          <option>$20,000 – $40,000</option>
-          <option>$40,000 – $60,000</option>
-          <option>$60,000 – $80,000</option>
-          <option>$80,000 – $100,000</option>
-          <option>Over $100,000</option>
+          <option>Under $20,000</option><option>$20,000 – $40,000</option>
+          <option>$40,000 – $60,000</option><option>$60,000 – $80,000</option>
+          <option>$80,000 – $100,000</option><option>Over $100,000</option>
         </select>
       </div>
       <div class="sform-group"><label>Additional Details</label><textarea placeholder="Preferred colour, transmission, specific features..."></textarea></div>
       <div class="sform-buttons">
-        <button class="btn-wa" onclick="sendSourcingWhatsApp()"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
-        <button class="btn-white" onclick="sendSourcingEmail()"><i class="fas fa-envelope"></i> Send via Email</button>
+        <button class="btn-wa" onclick="demoClick(this)"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
+        <button class="btn-red-solid" onclick="demoClick(this)"><i class="fas fa-envelope"></i> Send via Email</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ===== HOW IT WORKS ===== -->
+<!-- PROCESS -->
 <section class="process" id="process">
   <div style="text-align:center;" class="reveal">
-    <div class="section-label" style="justify-content:center;">Simple Process</div>
+    <div class="section-eyebrow" style="justify-content:center;">Simple Process</div>
     <h2 class="section-title">How It <em>Works</em></h2>
   </div>
   <div class="process-steps">
@@ -788,34 +719,25 @@
   </div>
 </section>
 
-<!-- ===== WHY VISION HUB ===== -->
+<!-- WHY -->
 <section class="why" id="why">
   <div class="why-inner">
     <div class="reveal">
-      <div class="section-label">Why Choose Us</div>
+      <div class="section-eyebrow">Why Choose Us</div>
       <h2 class="section-title">Trust, Transparency &amp; <em>Quality.</em></h2>
-      <p style="color:var(--gray-lighter);font-size:0.92rem;line-height:1.8;max-width:460px;">Vision Hub is not just another car dealer. We're a professional automotive partner committed to making your vehicle purchase easy, transparent, and stress-free — every time.</p>
+      <p style="color:var(--silver-light);font-size:.92rem;line-height:1.8;max-width:460px;">Vision Hub is not just another car dealer. We're a professional automotive partner committed to making your vehicle purchase easy, transparent, and stress-free — every time.</p>
       <div class="why-points">
         <div class="why-point">
           <div class="why-point-icon"><i class="fas fa-shield-alt"></i></div>
-          <div class="why-point-text">
-            <h4>Fully Duty Paid &amp; Clean Papers</h4>
-            <p>Every vehicle we sell is fully duty paid with clean, legally transferable documentation. No hidden surprises after purchase.</p>
-          </div>
+          <div class="why-point-text"><h4>Fully Duty Paid &amp; Clean Papers</h4><p>Every vehicle we sell is fully duty paid with clean, legally transferable documentation. No hidden surprises after purchase.</p></div>
         </div>
         <div class="why-point">
           <div class="why-point-icon"><i class="fas fa-tags"></i></div>
-          <div class="why-point-text">
-            <h4>Competitive, Transparent Pricing</h4>
-            <p>We display real prices upfront. No inflated sticker prices, no hidden fees — what you see is what you pay.</p>
-          </div>
+          <div class="why-point-text"><h4>Competitive, Transparent Pricing</h4><p>We display real prices upfront. No inflated sticker prices, no hidden fees — what you see is what you pay.</p></div>
         </div>
         <div class="why-point">
           <div class="why-point-icon"><i class="fas fa-headset"></i></div>
-          <div class="why-point-text">
-            <h4>Dedicated After-Sale Support</h4>
-            <p>Our relationship doesn't end at the sale. We assist with registration, queries, and sourcing your next vehicle too.</p>
-          </div>
+          <div class="why-point-text"><h4>Dedicated After-Sale Support</h4><p>Our relationship doesn't end at the sale. We assist with registration, queries, and sourcing your next vehicle too.</p></div>
         </div>
       </div>
     </div>
@@ -825,10 +747,10 @@
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
+<!-- CONTACT -->
 <section class="contact" id="contact">
   <div style="text-align:center;" class="reveal">
-    <div class="section-label" style="justify-content:center;">Get In Touch</div>
+    <div class="section-eyebrow" style="justify-content:center;">Get In Touch</div>
     <h2 class="section-title">Enquire About A <em>Vehicle</em></h2>
   </div>
   <div class="contact-grid">
@@ -837,15 +759,15 @@
       <p>We're based in Helvetia, Harare and available via phone, WhatsApp, or email. Walk in or contact us — our team is ready to help you find your perfect vehicle.</p>
       <div class="contact-item">
         <div class="contact-item-icon"><i class="fab fa-whatsapp"></i></div>
-        <div class="contact-item-text"><span>WhatsApp / Call</span><a href="https://wa.me/263784516291">+263 78 451 6291</a></div>
+        <div class="contact-item-text"><span>WhatsApp / Call</span><a href="#">+263 78 451 6291</a></div>
       </div>
       <div class="contact-item">
         <div class="contact-item-icon"><i class="fas fa-phone-alt"></i></div>
-        <div class="contact-item-text"><span>Phone Line 2</span><a href="tel:+263774048468">+263 77 404 8468</a></div>
+        <div class="contact-item-text"><span>Phone Line 2</span><a href="#">+263 77 404 8468</a></div>
       </div>
       <div class="contact-item">
         <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
-        <div class="contact-item-text"><span>Email</span><a href="mailto:visionhub.co@gmail.com">visionhub.co@gmail.com</a></div>
+        <div class="contact-item-text"><span>Email</span><a href="#">visionhub.co@gmail.com</a></div>
       </div>
       <div class="contact-item">
         <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
@@ -875,25 +797,28 @@
       </div>
       <div class="form-group"><label>Message</label><textarea placeholder="Tell us your requirements, budget, or any questions..."></textarea></div>
       <div class="contact-buttons">
-        <button class="btn-primary" onclick="submitContactForm(this)" style="border:none;"><i class="fas fa-paper-plane"></i> Send Enquiry</button>
-        <a href="https://wa.me/263784516291" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <button class="btn-primary" onclick="demoClick(this)" style="border:none;"><i class="fas fa-paper-plane"></i> Send Enquiry</button>
+        <button class="btn-whatsapp" onclick="demoClick(this)" style="border:none;"><i class="fab fa-whatsapp"></i> WhatsApp</button>
       </div>
-      <p style="font-size:0.76rem;color:var(--gray-light);margin-top:0.9rem;"><i class="fas fa-clock" style="color:var(--green-light);margin-right:5px;"></i>We respond to all enquiries within a few hours.</p>
+      <p style="font-size:.75rem;color:var(--silver);margin-top:.9rem;"><i class="fas fa-clock" style="color:var(--red-light);margin-right:5px;"></i>We respond to all enquiries within a few hours.</p>
     </div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-main">
     <div class="footer-brand">
-      <img src="logos.png" alt="Vision Hub Logo">
+      <div class="footer-brand-logo">
+        <div class="logo-icon"><i class="fas fa-car"></i></div>
+        <div class="logo-text">Vision Hub<span>Automotive Sales — Harare</span></div>
+      </div>
       <p>Vision Hub — Harare's trusted automotive dealership. Brand-new and imported vehicles, fully duty paid, clean documentation. SUVs, 4x4s, double cabs and executive sedans.</p>
       <div class="footer-socials">
         <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://wa.me/263784516291" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="mailto:visionhub.co@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="tel:+263784516291"><i class="fas fa-phone-alt"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fas fa-envelope"></i></a>
+        <a href="#"><i class="fas fa-phone-alt"></i></a>
       </div>
     </div>
     <div class="footer-col">
@@ -921,9 +846,9 @@
     <div class="footer-col">
       <h4>Contact</h4>
       <ul>
-        <li><a href="https://wa.me/263784516291"><i class="fab fa-whatsapp"></i>&nbsp;+263 78 451 6291</a></li>
-        <li><a href="tel:+263774048468"><i class="fas fa-phone-alt"></i>&nbsp;+263 77 404 8468</a></li>
-        <li><a href="mailto:visionhub.co@gmail.com"><i class="fas fa-envelope"></i>&nbsp;visionhub.co@gmail.com</a></li>
+        <li><a href="#"><i class="fab fa-whatsapp"></i>&nbsp;+263 78 451 6291</a></li>
+        <li><a href="#"><i class="fas fa-phone-alt"></i>&nbsp;+263 77 404 8468</a></li>
+        <li><a href="#"><i class="fas fa-envelope"></i>&nbsp;visionhub.co@gmail.com</a></li>
         <li><a href="#"><i class="fas fa-map-marker-alt"></i>&nbsp;Helvetia, Harare, ZW</a></li>
       </ul>
     </div>
@@ -935,7 +860,6 @@
 </footer>
 
 <script>
-  // Hamburger
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
   hamburger.addEventListener('click', () => {
@@ -952,54 +876,20 @@
       mobileMenu.classList.remove('open');
     }
   });
-
-  // Nav shrink on scroll
   window.addEventListener('scroll', () => {
-    document.getElementById('navbar').style.height = window.scrollY > 60 ? '56px' : '64px';
+    document.getElementById('navbar').style.height = window.scrollY > 60 ? '58px' : '68px';
   });
-
-  // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
     });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // Sourcing form — build message
-  function buildSourcingMessage() {
-    const name    = document.querySelector('.sourcing-form input[type="text"]')?.value.trim() || 'Not provided';
-    const phone   = document.querySelector('.sourcing-form input[type="tel"]')?.value.trim()  || 'Not provided';
-    const vehicle = document.querySelectorAll('.sourcing-form input[type="text"]')[1]?.value.trim() || 'Not specified';
-    const budget  = document.querySelector('.sourcing-form select')?.value || 'Not specified';
-    const details = document.querySelector('.sourcing-form textarea')?.value.trim() || '';
-    return `Vehicle Sourcing Request — Vision Hub\n\nName: ${name}\nPhone: ${phone}\nVehicle Wanted: ${vehicle}\nBudget: ${budget}\nDetails: ${details}`;
-  }
-
-  function sendSourcingWhatsApp() {
-    const text = encodeURIComponent(buildSourcingMessage());
-    window.open(`https://wa.me/263784516291?text=${text}`, '_blank');
-  }
-
-  function sendSourcingEmail() {
-    const subject = encodeURIComponent('Vehicle Sourcing Request — Vision Hub');
-    const body    = encodeURIComponent(buildSourcingMessage());
-    window.location.href = `mailto:visionhub.co@gmail.com?subject=${subject}&body=${body}`;
-  }
-
-  // Contact form feedback
-  function submitContactForm(btn) {
-    btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
-    btn.style.background = 'var(--green-dark)';
-    btn.style.borderColor = 'var(--green-dark)';
-    setTimeout(() => {
-      btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Enquiry';
-      btn.style.background = '';
-      btn.style.borderColor = '';
-    }, 3000);
+  function demoClick(btn) {
+    const orig = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-check"></i> Done!';
+    btn.style.opacity = '.75';
+    setTimeout(() => { btn.innerHTML = orig; btn.style.opacity = ''; }, 2200);
   }
 </script>
 </body>
