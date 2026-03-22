@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Vision Hub Automotive | Harare</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --white:#FFFFFF; --off-white:#F8F7F5; --silver:#E8E6E1; --silver-2:#C8C4BC; --silver-3:#9A9590;
+  --dark:#111110; --dark-2:#1A1A18; --dark-3:#242420; --charcoal:#3A3A36;
+  --gold:#B8963C; --gold-2:#D4AF5A; --gold-pale:rgba(184,150,60,0.12);
+  --font-display:'Cormorant Garamond',serif; --font-body:'Outfit',sans-serif;
+  --nav-h:72px; --transition:0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);background:var(--white);color:var(--dark);overflow-x:hidden;}
+::-webkit-scrollbar{width:3px;} ::-webkit-scrollbar-track{background:var(--silver);} ::-webkit-scrollbar-thumb{background:var(--gold);}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 4%;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--silver);transition:box-shadow var(--transition);}
+nav.scrolled{box-shadow:0 4px 30px rgba(0,0,0,0.08);}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-logo-mark{width:42px;height:42px;background:var(--silver-lt);display:flex;align-items:center;justify-content:center;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);}
+.nav-logo-mark span{color:var(--gold);font-family:var(--font-display);font-size:1.1rem;font-weight:700;}
+.nav-logo-text{line-height:1.1;}
+.nav-logo-text strong{display:block;font-family:var(--font-body);font-weight:800;font-size:0.95rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--dark);}
+.nav-logo-text small{font-size:0.62rem;color:var(--silver-3);letter-spacing:0.2em;text-transform:uppercase;}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
+.nav-links a{font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--charcoal);text-decoration:none;transition:color var(--transition);}
+.nav-links a:hover{color:var(--dark);} .nav-links a.active{color:var(--gold);}
+.btn-nav-wa{display:inline-flex;align-items:center;gap:7px;background:#25D366;color:#fff;padding:10px 20px;border-radius:2px;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:all var(--transition);border:none;cursor:pointer;font-family:var(--font-body);}
+.btn-nav-wa:hover{background:#1daa52;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;background:none;border:none;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--silver-lt);transition:all 0.3s;border-radius:2px;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;z-index:999;background:var(--white);border-bottom:2px solid var(--gold);padding:2rem 4%;flex-direction:column;gap:1.2rem;box-shadow:0 10px 40px rgba(0,0,0,0.1);}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-size:1rem;font-weight:600;color:var(--dark);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;padding:0.5rem 0;border-bottom:1px solid var(--silver);}
+.mobile-menu .mob-wa{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:12px 20px;border-radius:2px;margin-top:0.5rem;justify-content:center;font-size:0.85rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;}
+
+/* PAGE HERO */
+.page-hero{background:var(--silver-lt);padding:calc(var(--nav-h) + 70px) 4% 70px;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1600&q=80') center/cover no-repeat;opacity:0.1;}
+.page-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(17,17,16,0.98) 55%,rgba(17,17,16,0.6) 100%);}
+.page-hero-content{position:relative;z-index:1;} .page-hero-content *{color:#fff !important;} .page-hero-content .breadcrumb a{color:rgba(255,255,255,0.6) !important;} .page-hero-content .breadcrumb p{color:var(--gold) !important;}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:1.2rem;}
+.breadcrumb a{font-size:0.72rem;color:var(--silver-dk);text-decoration:none;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.3s;}
+.breadcrumb a:hover{color:var(--gold);}
+.breadcrumb span{color:rgba(255,255,255,0.2);}
+.breadcrumb p{font-size:0.72rem;color:var(--gold);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;}
+.page-title{font-family:var(--font-display);font-size:clamp(2.4rem,5vw,4.5rem);font-weight:700;color:var(--ink);line-height:1.0;margin-bottom:1rem;}
+.page-title em{font-style:italic;color:var(--gold-2);}
+.page-desc{font-size:0.95rem;color:var(--slate);line-height:1.85;max-width:520px;}
+
+/* QUICK CONTACT BAR */
+.quick-bar{background:var(--gold);padding:0 4%;display:flex;align-items:stretch;flex-wrap:wrap;}
+.quick-item{display:flex;align-items:center;gap:12px;padding:1.2rem 2.5rem;color:var(--ink);text-decoration:none;font-weight:700;font-size:0.82rem;letter-spacing:0.05em;border-right:1px solid rgba(17,17,16,0.15);transition:background 0.25s;flex:1;min-width:180px;}
+.quick-item:hover{background:rgba(17,17,16,0.1);}
+.quick-item i{font-size:1.1rem;}
+.quick-item-text span{display:block;font-size:0.6rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;opacity:0.65;margin-bottom:1px;}
+.quick-item-text strong{font-size:0.88rem;}
+
+/* MAIN CONTACT LAYOUT */
+.contact-main{padding:80px 4%;background:var(--off-white);}
+.contact-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:60px;}
+
+/* LEFT: INFO */
+.cinfo h2{font-family:var(--font-display);font-size:2.4rem;font-weight:700;color:var(--dark);line-height:1.05;margin-bottom:0.8rem;}
+.cinfo h2 em{font-style:italic;color:var(--gold);}
+.cinfo > p{font-size:0.9rem;color:var(--silver-3);line-height:1.9;margin-bottom:2.5rem;}
+.cinfo-items{display:flex;flex-direction:column;gap:0;}
+.cinfo-item{display:flex;gap:1.2rem;align-items:flex-start;padding:1.5rem 0;border-bottom:1px solid var(--silver);}
+.cinfo-icon{width:50px;height:50px;background:var(--silver-lt);border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.cinfo-icon i{font-size:1rem;color:var(--gold);}
+.cinfo-text label{display:block;font-size:0.62rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--silver-3);margin-bottom:4px;}
+.cinfo-text a,.cinfo-text p{font-size:1rem;font-weight:700;color:var(--dark);text-decoration:none;margin:0;transition:color 0.3s;}
+.cinfo-text a:hover{color:var(--gold);}
+.cinfo-text small{display:block;font-size:0.75rem;color:var(--silver-3);margin-top:2px;}
+
+.hours-box{background:var(--white);border-radius:2px;padding:1.8rem;margin-top:2rem;border:1px solid var(--silver);}
+.hours-box h4{font-family:var(--font-body);font-size:0.7rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--charcoal);margin-bottom:1rem;display:flex;align-items:center;gap:8px;}
+.hours-box h4 i{color:var(--gold);}
+.hours-row{display:flex;justify-content:space-between;align-items:center;padding:0.6rem 0;border-bottom:1px solid var(--silver);font-size:0.82rem;}
+.hours-row:last-child{border-bottom:none;}
+.hours-row .day{color:var(--charcoal);font-weight:600;}
+.hours-row .time{color:var(--dark);font-weight:700;}
+.hours-row .closed{color:#e74c3c;font-weight:700;}
+.open-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(46,204,113,0.1);border:1px solid rgba(46,204,113,0.3);color:#27ae60;padding:4px 10px;border-radius:20px;font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-top:1rem;}
+.open-badge i{font-size:0.55rem;}
+
+/* RIGHT: FORM */
+.contact-form-wrap{background:var(--white);border-radius:2px;padding:2.8rem;border:1px solid var(--silver);}
+.form-header{margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:2px solid var(--gold);}
+.form-header h3{font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--dark);}
+.form-header h3 em{font-style:italic;color:var(--gold);}
+.form-header p{font-size:0.82rem;color:var(--silver-3);margin-top:0.4rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:0;}
+.fg{margin-bottom:1rem;}
+.fg label{display:block;font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--charcoal);margin-bottom:7px;}
+.fg input,.fg select,.fg textarea{width:100%;padding:13px 15px;background:var(--off-white);border:1.5px solid var(--silver);border-radius:2px;font-family:var(--font-body);font-size:0.88rem;color:var(--dark);outline:none;transition:border-color 0.3s;-webkit-appearance:none;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);background:var(--white);}
+.fg textarea{min-height:130px;resize:vertical;}
+.fg select option{background:var(--white);}
+.form-btns{display:flex;gap:0.8rem;margin-top:0.5rem;flex-wrap:wrap;}
+.btn-submit{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--silver-lt);color:var(--ink);padding:14px 28px;border-radius:2px;font-family:var(--font-body);font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:2px solid var(--dark);cursor:pointer;transition:all var(--transition);flex:1;}
+.btn-submit:hover{background:var(--gold);border-color:var(--gold);color:var(--dark);}
+.btn-wa-form{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#25D366;color:#fff;padding:14px 28px;border-radius:2px;font-family:var(--font-body);font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:2px solid #25D366;text-decoration:none;transition:all var(--transition);flex:1;}
+.btn-wa-form:hover{background:#1daa52;border-color:#1daa52;}
+.form-note{font-size:0.72rem;color:var(--silver-3);margin-top:0.8rem;display:flex;align-items:center;gap:6px;}
+.form-note i{color:var(--gold);}
+
+/* VEHICLE REQUEST SECTION */
+.sourcing-section{background:var(--silver-lt);padding:80px 4%;position:relative;overflow:hidden;}
+.sourcing-section::before{content:'';position:absolute;top:0;right:0;bottom:0;width:40%;background:url('https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=800&q=80') center/cover no-repeat;opacity:0.07;}
+.sourcing-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start;}
+.sourcing-left .section-tag{color:var(--gold);display:flex;align-items:center;gap:10px;font-size:0.68rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1rem;}
+.sourcing-left .section-tag::before{content:'';display:block;width:24px;height:1px;background:var(--gold);}
+.sourcing-left h2{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);font-weight:700;color:var(--ink);line-height:1.05;margin-bottom:1rem;}
+.sourcing-left h2 em{font-style:italic;color:var(--gold-2);}
+.sourcing-left p{font-size:0.9rem;color:#5A5752;line-height:1.9;margin-bottom:1.8rem;}
+.src-points{display:flex;flex-direction:column;gap:0.9rem;}
+.src-point{display:flex;align-items:center;gap:12px;color:#2A2926;font-size:0.85rem;}
+.src-point i{color:var(--gold);font-size:0.7rem;width:14px;}
+
+.sourcing-right-form{background:#fff;border:1px solid #E2DFD8;border-radius:2px;padding:2.5rem;}
+.sourcing-right-form h3{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--ink);margin-bottom:0.4rem;}
+.sourcing-right-form p{font-size:0.8rem;color:var(--silver-dk);margin-bottom:1.8rem;}
+.sf-group{margin-bottom:1rem;}
+.sf-group label{display:block;font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--silver-dk);margin-bottom:6px;}
+.sf-group input,.sf-group select,.sf-group textarea{width:100%;padding:12px 14px;background:#fff;border:1px solid #E2DFD8;border-radius:2px;color:var(--ink);font-family:var(--font-body);font-size:0.88rem;outline:none;transition:border-color 0.3s;-webkit-appearance:none;}
+.sf-group input::placeholder,.sf-group textarea::placeholder{color:#9A9590;}
+.sf-group input:focus,.sf-group select:focus,.sf-group textarea:focus{border-color:var(--gold);}
+.sf-group select option{background:var(--off-white);color:var(--ink);}
+.sf-group textarea{min-height:80px;resize:vertical;}
+.sf-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.sf-actions{display:flex;gap:0.7rem;margin-top:0.5rem;}
+.btn-gold-s{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:var(--dark);padding:12px 20px;border-radius:2px;font-family:var(--font-body);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;border:2px solid var(--gold);cursor:pointer;transition:all 0.3s;flex:1;}
+.btn-gold-s:hover{background:var(--gold-2);border-color:var(--gold-2);}
+.btn-wa-s{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#fff;padding:12px 20px;border-radius:2px;font-family:var(--font-body);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;border:2px solid #25D366;cursor:pointer;transition:all 0.3s;flex:1;text-decoration:none;}
+.btn-wa-s:hover{background:#1daa52;border-color:#1daa52;}
+
+/* MAP PLACEHOLDER */
+.map-section{background:var(--off-white);padding:60px 4%;}
+.map-box{background:var(--off-white);border-radius:2px;height:380px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border:1px solid var(--silver);}
+.map-box::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?w=1200&q=70') center/cover no-repeat;opacity:0.15;}
+.map-pin{position:relative;z-index:1;text-align:center;}
+.map-pin i{font-size:3rem;color:var(--gold);display:block;margin-bottom:1rem;}
+.map-pin h3{font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--ink);margin-bottom:0.5rem;}
+.map-pin p{font-size:0.85rem;color:#5A5752;margin-bottom:1.5rem;}
+.btn-directions{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--dark);padding:12px 24px;border-radius:2px;font-family:var(--font-body);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:all 0.3s;}
+.btn-directions:hover{background:var(--gold-2);}
+
+/* FOOTER */
+footer{background:var(--silver-lt);color:var(--ink);padding:70px 4% 0;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;padding-bottom:3rem;border-bottom:1px solid var(--silver);}
+.footer-brand-logo{display:flex;align-items:center;gap:12px;margin-bottom:1.2rem;}
+.footer-logo-mark{width:44px;height:44px;background:var(--gold);display:flex;align-items:center;justify-content:center;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);}
+.footer-logo-mark span{color:var(--dark);font-family:var(--font-display);font-size:1.1rem;font-weight:700;}
+.footer-brand-name strong{display:block;font-family:var(--font-body);font-weight:800;font-size:0.9rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);}
+.footer-brand-name small{font-size:0.6rem;color:var(--silver-dk);letter-spacing:0.2em;text-transform:uppercase;}
+.footer-about{font-size:0.83rem;color:var(--silver-dk);line-height:1.85;margin-bottom:1.5rem;}
+.footer-socials{display:flex;gap:8px;}
+.footer-social{width:36px;height:36px;background:var(--white);border:1px solid var(--silver);border-radius:2px;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#5A5752;font-size:0.8rem;transition:all var(--transition);}
+.footer-social:hover{background:var(--gold);border-color:var(--gold);color:var(--dark);}
+.footer-col h4{font-size:0.68rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--ink);margin-bottom:1.2rem;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:0.7rem;}
+.footer-col ul li a{font-size:0.82rem;color:var(--silver-dk);text-decoration:none;transition:color var(--transition);display:flex;align-items:center;gap:6px;}
+.footer-col ul li a:hover{color:var(--gold-2);}
+.footer-col ul li a i{font-size:0.55rem;}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:1.4rem 0;flex-wrap:wrap;gap:0.8rem;}
+.footer-bottom p,.footer-bottom a{font-size:0.75rem;color:#9A9590;text-decoration:none;}
+.footer-bottom a:hover{color:var(--gold-2);}
+.footer-bottom span{color:var(--gold-2);}
+
+.float-wa{position:fixed;bottom:2rem;right:2rem;z-index:900;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,0.4);text-decoration:none;transition:all var(--transition);animation:waPulse 3s ease infinite;}
+.float-wa:hover{transform:scale(1.1);animation:none;}
+.float-wa i{font-size:1.4rem;color:#fff;}
+@keyframes waPulse{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.4)}50%{box-shadow:0 6px 40px rgba(37,211,102,0.7)}}
+
+@media(max-width:1100px){.footer-top{grid-template-columns:1fr 1fr;} .sourcing-inner{grid-template-columns:1fr;gap:40px;}}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;} .quick-item{min-width:220px;}}
+@media(max-width:768px){:root{--nav-h:64px;} .nav-links,.btn-nav-wa{display:none;} .hamburger{display:flex;} .footer-top{grid-template-columns:1fr;gap:2.5rem;} .sf-row,.form-row{grid-template-columns:1fr;} .sf-actions,.form-btns{flex-direction:column;} .quick-bar{flex-direction:column;} .quick-item{border-right:none;border-bottom:1px solid rgba(17,17,16,0.15);}}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a class="nav-logo" href="index.html">
+    <div class="nav-logo-mark"><span>V</span></div>
+    <div class="nav-logo-text"><strong>Vision Hub</strong><small>Premium Automotive</small></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="inventory.html">Inventory</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <div>
+    <a href="https://wa.me/263784516291" target="_blank" class="btn-nav-wa"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+  </div>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMob()">Home</a>
+  <a href="inventory.html" onclick="closeMob()">Our Inventory</a>
+  <a href="index.html#about" onclick="closeMob()">About Us</a>
+  <a href="index.html#services" onclick="closeMob()">Services</a>
+  <a href="contact.html" onclick="closeMob()">Contact</a>
+  <a href="https://wa.me/263784516291" target="_blank" class="mob-wa"><i class="fab fa-whatsapp"></i> WhatsApp Now</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><p>Contact</p></div>
+    <h1 class="page-title">Let's Talk <em>Cars.</em></h1>
+    <p class="page-desc">We're based in Helvetia, Harare. Reach us by WhatsApp, call, email, or just walk in. Our team is always ready to help you find the right vehicle.</p>
+  </div>
+</div>
+
+<!-- QUICK BAR -->
+<div class="quick-bar">
+  <a href="https://wa.me/263784516291" target="_blank" class="quick-item">
+    <i class="fab fa-whatsapp" style="font-size:1.4rem;"></i>
+    <div class="quick-item-text"><span>WhatsApp (Fastest)</span><strong>+263 78 451 6291</strong></div>
+  </a>
+  <a href="tel:+263784516291" class="quick-item">
+    <i class="fas fa-phone-alt"></i>
+    <div class="quick-item-text"><span>Call Us</span><strong>+263 78 451 6291</strong></div>
+  </a>
+  <a href="tel:+263774048468" class="quick-item">
+    <i class="fas fa-phone-alt"></i>
+    <div class="quick-item-text"><span>Line 2</span><strong>+263 77 404 8468</strong></div>
+  </a>
+  <a href="/cdn-cgi/l/email-protection#84f2edf7edebeaecf1e6aae7ebc4e3e9e5ede8aae7ebe9" class="quick-item">
+    <i class="fas fa-envelope"></i>
+    <div class="quick-item-text"><span>Email</span><strong><span class="__cf_email__" data-cfemail="96e0ffe5fff9f8fee3f4b8f5f9d6f1fbf7fffab8f5f9fb">[email&#160;protected]</span></strong></div>
+  </a>
+</div>
+
+<!-- MAIN CONTACT -->
+<div class="contact-main">
+  <div class="contact-grid">
+
+    <!-- INFO -->
+    <div class="cinfo">
+      <h2>Visit Us or <em>Contact</em> Anytime</h2>
+      <p>No waiting. No pressure. No hard sell. Just honest automotive advice and great vehicles. We respond to all enquiries quickly — usually within the hour.</p>
+      <div class="cinfo-items">
+        <div class="cinfo-item">
+          <div class="cinfo-icon"><i class="fab fa-whatsapp"></i></div>
+          <div class="cinfo-text">
+            <label>WhatsApp (Primary)</label>
+            <a href="https://wa.me/263784516291">+263 78 451 6291</a>
+            <small>Fastest way to reach us — we reply immediately</small>
+          </div>
+        </div>
+        <div class="cinfo-item">
+          <div class="cinfo-icon"><i class="fas fa-phone-alt"></i></div>
+          <div class="cinfo-text">
+            <label>Phone Line 2</label>
+            <a href="tel:+263774048468">+263 77 404 8468</a>
+            <small>Alternative line — call anytime during hours</small>
+          </div>
+        </div>
+        <div class="cinfo-item">
+          <div class="cinfo-icon"><i class="fas fa-envelope"></i></div>
+          <div class="cinfo-text">
+            <label>Email Address</label>
+            <a href="/cdn-cgi/l/email-protection#54223d273d3b3a3c21367a373b143339353d387a373b39"><span class="__cf_email__" data-cfemail="31475842585e5f5944531f525e71565c50585d1f525e5c">[email&#160;protected]</span></a>
+            <small>We respond to all emails same day</small>
+          </div>
+        </div>
+        <div class="cinfo-item">
+          <div class="cinfo-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="cinfo-text">
+            <label>Physical Location</label>
+            <p>Helvetia, Harare, Zimbabwe</p>
+            <small>Walk-ins welcome during business hours</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="hours-box">
+        <h4><i class="fas fa-clock"></i> Business Hours</h4>
+        <div class="hours-row"><span class="day">Monday — Friday</span><span class="time">08:00 — 17:30</span></div>
+        <div class="hours-row"><span class="day">Saturday</span><span class="time">08:00 — 14:00</span></div>
+        <div class="hours-row"><span class="day">Sunday</span><span class="closed">By Appointment</span></div>
+        <div class="hours-row"><span class="day">Public Holidays</span><span class="closed">By Appointment</span></div>
+        <div class="open-badge"><i class="fas fa-circle"></i> WhatsApp Available 7 Days</div>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="contact-form-wrap">
+      <div class="form-header">
+        <h3>Send An <em>Enquiry</em></h3>
+        <p>Fill in the form below and we'll get back to you as fast as possible.</p>
+      </div>
+      <div class="form-row">
+        <div class="fg"><label>Your Full Name</label><input type="text" placeholder="e.g. Tendai Moyo"></div>
+        <div class="fg"><label>Phone / WhatsApp</label><input type="tel" placeholder="+263 ..."></div>
+      </div>
+      <div class="fg"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+      <div class="fg">
+        <label>Vehicle of Interest</label>
+        <select>
+          <option value="">Select a vehicle or service...</option>
+          <optgroup label="— Available Vehicles —">
+            <option>Toyota Hilux Legend 50 (2019) — $40,000</option>
+            <option>Toyota Hilux GGC — $32,000</option>
+            <option>Ford Ranger — $28,000</option>
+            <option>Nissan Hardbody — $18,000</option>
+            <option>Toyota Vitz — $8,500</option>
+            <option>Toyota Belta — $9,000</option>
+            <option>Honda Fit GP5 Hybrid — $10,000</option>
+            <option>Toyota Aqua Hybrid — $11,000</option>
+          </optgroup>
+          <optgroup label="— Services —">
+            <option>Vehicle Sourcing Request</option>
+            <option>Corporate Fleet Enquiry</option>
+            <option>Import Assistance</option>
+            <option>General Enquiry</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="fg"><label>Your Budget (Optional)</label>
+        <select>
+          <option value="">Select your budget...</option>
+          <option>Under $10,000</option>
+          <option>$10,000 – $20,000</option>
+          <option>$20,000 – $35,000</option>
+          <option>$35,000 – $50,000</option>
+          <option>$50,000 – $80,000</option>
+          <option>Over $80,000</option>
+        </select>
+      </div>
+      <div class="fg"><label>Message / Requirements</label><textarea placeholder="Tell us what you need — what vehicle, specific specs, colour, when you need it, any questions..."></textarea></div>
+      <div class="form-btns">
+        <button class="btn-submit" onclick="submitEnquiry(this)"><i class="fas fa-paper-plane"></i> Send Enquiry</button>
+        <a href="https://wa.me/263784516291" target="_blank" class="btn-wa-form"><i class="fab fa-whatsapp"></i> WhatsApp Instead</a>
+      </div>
+      <p class="form-note"><i class="fas fa-clock"></i> We respond to all enquiries within a few hours — often within minutes during business hours.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- VEHICLE SOURCING -->
+<div class="sourcing-section" id="sourcing">
+  <div class="sourcing-inner">
+    <div class="sourcing-left">
+      <div class="section-tag">Vehicle Sourcing Request</div>
+      <h2>We'll Source Any <em>Vehicle</em> You Need.</h2>
+      <p>If the car you want isn't in our current stock, tell us exactly what you're after and we'll source it for you. From Japan, South Africa, Dubai — anywhere. Any make, model, or spec.</p>
+      <div class="src-points">
+        <div class="src-point"><i class="fas fa-check-circle"></i> Any make, model, year, or colour</div>
+        <div class="src-point"><i class="fas fa-check-circle"></i> Sourced to your exact budget</div>
+        <div class="src-point"><i class="fas fa-check-circle"></i> Full customs clearance & duty handled</div>
+        <div class="src-point"><i class="fas fa-check-circle"></i> Port-to-Harare delivery included</div>
+        <div class="src-point"><i class="fas fa-check-circle"></i> Regular progress updates provided</div>
+        <div class="src-point"><i class="fas fa-check-circle"></i> No inflated sourcing fees</div>
+      </div>
+    </div>
+    <div class="sourcing-right-form">
+      <h3>Request a Vehicle</h3>
+      <p>Tell us what you want and we'll find it.</p>
+      <div class="sf-row">
+        <div class="sf-group"><label>Your Name</label><input type="text" placeholder="Full name"></div>
+        <div class="sf-group"><label>WhatsApp Number</label><input type="tel" placeholder="+263..."></div>
+      </div>
+      <div class="sf-group"><label>Vehicle You Want</label><input type="text" placeholder="e.g. 2022 Toyota Fortuner GD6 4x4 Automatic"></div>
+      <div class="sf-group">
+        <label>Budget (USD)</label>
+        <select>
+          <option value="">Select budget range...</option>
+          <option>Under $15,000</option>
+          <option>$15,000 – $25,000</option>
+          <option>$25,000 – $40,000</option>
+          <option>$40,000 – $60,000</option>
+          <option>$60,000 – $80,000</option>
+          <option>Over $80,000</option>
+        </select>
+      </div>
+      <div class="sf-group"><label>Extra Details</label><textarea placeholder="Preferred colour, trim level, features, deadline..."></textarea></div>
+      <div class="sf-actions">
+        <button class="btn-gold-s" onclick="sendSourcingRequest()"><i class="fas fa-paper-plane"></i> Submit Request</button>
+        <a href="https://wa.me/263784516291?text=Hi%20Vision%20Hub%2C%20I%27d%20like%20to%20request%20a%20specific%20vehicle" target="_blank" class="btn-wa-s"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAP -->
+<div class="map-section">
+  <div class="map-box">
+    <div class="map-pin">
+      <i class="fas fa-map-marker-alt"></i>
+      <h3>Vision Hub Automotive</h3>
+      <p>Helvetia, Harare, Zimbabwe</p>
+      <a href="https://maps.google.com/?q=Helvetia+Harare+Zimbabwe" target="_blank" class="btn-directions"><i class="fas fa-directions"></i> Get Directions</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-logo">
+        <div class="footer-logo-mark"><span>V</span></div>
+        <div class="footer-brand-name"><strong>Vision Hub</strong><small>Premium Automotive · Harare</small></div>
+      </div>
+      <p class="footer-about">Harare's most trusted automotive dealership. Premium imported vehicles — fully duty paid, clean documentation, zero hidden fees.</p>
+      <div class="footer-socials">
+        <a href="#" class="footer-social"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/263784516291" target="_blank" class="footer-social"><i class="fab fa-whatsapp"></i></a>
+        <a href="/cdn-cgi/l/email-protection#67110e140e08090f120549040827000a060e0b4904080a" class="footer-social"><i class="fas fa-envelope"></i></a>
+        <a href="tel:+263784516291" class="footer-social"><i class="fas fa-phone-alt"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Our Vehicles</h4>
+      <ul>
+        <li><a href="inventory.html"><i class="fas fa-chevron-right"></i> Toyota Hilux Legend 50</a></li>
+        <li><a href="inventory.html"><i class="fas fa-chevron-right"></i> Toyota Hilux GGC</a></li>
+        <li><a href="inventory.html"><i class="fas fa-chevron-right"></i> Ford Ranger</a></li>
+        <li><a href="inventory.html"><i class="fas fa-chevron-right"></i> Nissan Hardbody</a></li>
+        <li><a href="inventory.html"><i class="fas fa-chevron-right"></i> Honda Fit GP5 Hybrid</a></li>
+        <li><a href="inventory.html"><i class="fas fa-chevron-right"></i> Toyota Aqua</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Vehicle Sales</a></li>
+        <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Vehicle Sourcing</a></li>
+        <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Import & Clearing</a></li>
+        <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Corporate Fleet</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="https://wa.me/263784516291"><i class="fab fa-whatsapp"></i> +263 78 451 6291</a></li>
+        <li><a href="tel:+263774048468"><i class="fas fa-phone-alt"></i> +263 77 404 8468</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#0b7d6278626465637e692568644b6c666a626725686466"><i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="02746b716b6d6c6a77602c616d42656f636b6e2c616d6f">[email&#160;protected]</span></a></li>
+        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Helvetia, Harare, ZW</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 <span>Vision Hub Automotive Sales</span>. All Rights Reserved.</p>
+    <a href="#">Made by TendoWebsites</a>
+  </div>
+</footer>
+
+<a href="https://wa.me/263784516291" target="_blank" class="float-wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+function closeMob() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
+document.addEventListener('click', e => { if(!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) closeMob(); });
+window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40); });
+
+function submitEnquiry(btn) {
+  btn.innerHTML = '<i class="fas fa-check"></i> Enquiry Sent!';
+  btn.style.background = '#25D366'; btn.style.borderColor = '#25D366';
+  setTimeout(() => { btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Enquiry'; btn.style.background=''; btn.style.borderColor=''; }, 3500);
+}
+
+function sendSourcingRequest() {
+  const name = document.querySelector('.sourcing-right-form input[type="text"]')?.value || '';
+  const phone = document.querySelector('.sourcing-right-form input[type="tel"]')?.value || '';
+  const vehicle = document.querySelectorAll('.sourcing-right-form input[type="text"]')[1]?.value || '';
+  const budget = document.querySelector('.sourcing-right-form select')?.value || '';
+  const details = document.querySelector('.sourcing-right-form textarea')?.value || '';
+  const msg = encodeURIComponent('Vehicle Sourcing Request — Vision Hub\n\nName: '+name+'\nPhone: '+phone+'\nVehicle: '+vehicle+'\nBudget: '+budget+'\nDetails: '+details);
+  window.open('https://wa.me/263784516291?text='+msg, '_blank');
+}
+</script>
+</body>
+</html>
